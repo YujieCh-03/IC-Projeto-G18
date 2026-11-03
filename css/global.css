@@ -6,3 +6,9 @@ body {
     align-items: center;
     text-align: center;
 }
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
