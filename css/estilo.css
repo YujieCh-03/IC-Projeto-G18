@@ -1,0 +1,6 @@
+@import url(global.css);
+
+/* paginas individuais */
+@import url(bilhetes.css);
+@import url(choice.css);
+@import url(mbway.css);
