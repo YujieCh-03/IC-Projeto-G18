@@ -1,0 +1,41 @@
+.intro{
+    margin: 10vmin;
+    display: flex;
+    flex-direction: row;
+}
+.intro img{
+    margin-left: 7vmin;
+    width: 20vmin;
+    height: auto;
+}
+.intro_txt{
+    font-weight: bold;
+    font-size: large;
+}
+.titulo{
+    font-size:larger;
+}
+
+.social{
+    margin: 5vmin;
+    display: flex;
+    flex-direction: row;
+    gap: 5vmin;
+}
+.bolinhaPessoa{
+    width: auto;
+    height: 5vmin;
+}
+
+.bilhetes{
+    display: flex;
+    flex-direction: column;
+    gap: 5vmin;
+    margin:5vmin;
+}
+.bilheteCPreço{
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 10px;
+}
