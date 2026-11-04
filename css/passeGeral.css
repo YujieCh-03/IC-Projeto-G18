@@ -1,0 +1,19 @@
+ #form_bilhete{
+    margin: 5vmin;
+    gap:5vmin;
+ }
+
+ .pagar-btn{
+    position: fixed;
+    bottom: 5vmin;
+    right: 5vmin;
+    padding: 25px 20px;
+    border: 2px solid green;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: rgb(222, 255, 222);
+ }
+ 
+ .submit-btn{
+    margin: 5vmin;
+ }

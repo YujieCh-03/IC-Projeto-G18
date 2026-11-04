@@ -2,11 +2,14 @@
     margin: 10vmin;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80vmin;
 }
 .intro img{
     margin-left: 7vmin;
     width: 20vmin;
-    height: auto;
+    height:min-content;
 }
 .intro_txt{
     font-weight: bold;
