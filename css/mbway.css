@@ -1,5 +1,6 @@
-.codigo_pais{
-    display:flex;
-    flex-direction: column;
-    border
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  box-sizing: border-box;
 }
