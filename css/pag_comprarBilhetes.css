@@ -23,3 +23,9 @@
     width: 10vmin;
     height: 10vmin;
 }
+
+#pesquisa{
+    max-width: 60vmin;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
