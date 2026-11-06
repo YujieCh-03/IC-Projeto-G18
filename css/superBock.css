@@ -47,3 +47,31 @@
     width:50vmin;
     height:auto;
 }
+
+.popup-aviso {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.popup-aviso:target {
+    display: flex;
+}
+
+.popup-box {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 380px;
+    padding: 25px;
+    border-radius: 8px;
+    background: white;
+    text-align: center;
+}
+
+.popup-box h2 {
+    font-size: 20px;
+}
