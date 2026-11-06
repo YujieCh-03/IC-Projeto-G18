@@ -3,16 +3,13 @@
 }
 
 body {
-    min-height: 100vh;
+
+       min-height: 100vh;
     margin: 10px;
     padding: 24px 12px;
     border: 3px solid black;
     border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    background: white;
-    font-family: Arial, sans-serif;
-    color: black;
+
 }
 
 .all {
@@ -32,4 +29,3 @@ body {
     position: absolute;
     border-radius: 16px;
 }
-
