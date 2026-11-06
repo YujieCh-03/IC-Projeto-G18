@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento com Cartão</title>
     <link rel="stylesheet" href="../css/card.css">
+    <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
     <main class="all">
-        <a href="./choice.html" class="voltar-btn">voltar</a>
+        <a href="./choice.html"  class="voltar-btn">voltar</a>
 
         <h1>Pagamento com Cartão</h1>
 
@@ -30,11 +31,23 @@
                 </div>
             </div>
 
-            <a class="confirm" href="#success">Confirmar pagamento</a>
+            <a class="confirm" href="#confirmacao">Confirmar pagamento</a>
         </div>
 
     </main>
+   <div id="confirmacao" class="popup">
+    <div class="popup-box">
+        <h2>Tem a certeza que deseja pagar?</h2>
 
+        <p>Super Bock Super Rock</p>
+        <p>Passe Geral</p>
+        <p>Preço: 120.00€</p>
+
+        <a class="confirm" href="#success">Confirmar</a>
+        <a class="close" href="#">Cancelar</a>
+    </div>
+    </div> 
+    
     <div id="success" class="popup">
         <div class="popup-box">
             <h2>Pagamento com sucesso!</h2>

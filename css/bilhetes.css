@@ -20,7 +20,8 @@
 
 .ticket-card {
     display: block;
-    width: 220px;
+    width: 100%;
+    max-width: 220px;
     padding: 20px;
     border: 2px solid #222;
     border-radius: 10px;
@@ -28,4 +29,11 @@
     color: #000;
     background-color: #fafafa;
     transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+main .voltar-btn {
+    position: static;
+    display: block;
+    width: fit-content;
+    margin-bottom: 20px;
 }

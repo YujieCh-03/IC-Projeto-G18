@@ -13,7 +13,8 @@ main {
     border: 2px solid #222;
     border-radius: 16px;
     padding: 28px 24px;
-    width: 280px;
+    width: auto;
+    max-width: 280px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
@@ -77,8 +78,7 @@ main {
 
 .pdf-btn {
     margin-top: 24px;
-    width: 100%;
-    max-width: 300px;
+    align-self: stretch;
     padding: 14px 20px;
     background-color: #ffffff;
     color: #111;
@@ -117,4 +117,8 @@ main {
 
 .popup-box-pdf h2 {
     font-size: 20px;
+}
+
+.voltar-btn {
+    align-self: flex-start;
 }

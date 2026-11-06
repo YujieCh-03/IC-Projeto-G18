@@ -1,33 +1,45 @@
-.intro{
-    margin: 10vmin;
+.intro {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 80vmin;
+    gap: 15px;
+    margin: 20px 0;
 }
-.intro img{
-    margin-left: 7vmin;
-    width: 20vmin;
-    height:min-content;
+
+.intro img {
+    width: 80px;
+    height: auto;
 }
-.intro_txt{
+
+.intro_txt {
     font-weight: bold;
-    font-size: large;
 }
+
 .titulo{
     font-size:larger;
 }
 
-.social{
-    margin: 5vmin;
+.social {
     display: flex;
-    flex-direction: row;
-    gap: 5vmin;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
 }
+
+
 .bolinhaPessoa{
     width: auto;
     height: 5vmin;
+}
+
+
+.gosto-btn {
+    width: 100%;
+}
+
+.imgCartaz{
+    width:50vmin;
+    height:auto;
 }
 
 .bilhetes{
@@ -36,6 +48,8 @@
     gap: 5vmin;
     margin:5vmin;
 }
+
+
 .bilheteCPreço{
     background-color: white;
     border: 1px solid #ccc;
@@ -43,35 +57,3 @@
     padding: 10px;
 }
 
-.imgCartaz{
-    width:50vmin;
-    height:auto;
-}
-
-.popup-aviso {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.popup-aviso:target {
-    display: flex;
-}
-
-.popup-box {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 380px;
-    padding: 25px;
-    border-radius: 8px;
-    background: white;
-    text-align: center;
-}
-
-.popup-box h2 {
-    font-size: 20px;
-}

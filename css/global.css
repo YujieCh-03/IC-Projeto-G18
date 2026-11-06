@@ -1,43 +1,48 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background: rgb(255, 255, 255);
     text-align: center;
 }
-main{
-    max-width: 420px;
-    margin: auto;
+main {
+    width: auto;
+    max-width: 380px;
+    margin: 0 auto;
     padding: 30px 20px;
 }
-
 nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     text-align: center;
-    font-size: 25px;
     margin: 50px 0;
-    
 }
-.option{
+
+.option {
     display: flex;
     align-items: center;
-    gap: 10vmin;
-    padding: 25px 20px;
+    justify-content: center;
+    min-height: 76px;
+    padding: 20px 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    margin-bottom: 20px;
     text-decoration: none;
     color: black;
     font-size: 18px;
 }
 
-.voltar-btn{
+.voltar-btn {
+    display: block;
+    width: fit-content;
     font-size: large;
-    position: fixed;
-    left: 5vmin;
-    top: 5vmin;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 12px;
-    padding: 10px;
     background-color: #ccccccd0;
+    color: #551a8b;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 
 a{

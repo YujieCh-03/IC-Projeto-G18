@@ -12,3 +12,22 @@
    border-radius: 12px;
    margin-bottom: 20px;
  }
+
+ .intro {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.intro img {
+    width: 80px;
+    height: auto;
+}
+
+.intro_txt {
+    font-weight: bold;
+    text-align: left;
+}
+
+
