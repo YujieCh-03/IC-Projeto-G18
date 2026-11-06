@@ -1,6 +1,36 @@
 .inputMBWay, .selectMBWay, .btn-mbway {
-  width: 100%;
+  width: 33%;
   padding: 10px;
   margin-top: 8px;
   box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: white;
+    color: black;
+}
+
+.btn-mbway{
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 32px;
+    padding: 12px;
+    background: #222;
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    line-height: 28px;
+}
+
+.btn-mbway:hover{
+    background: #444;
 }
