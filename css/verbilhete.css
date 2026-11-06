@@ -89,3 +89,32 @@ main {
     cursor: pointer;
     transition: background-color 0.15s ease, transform 0.1s ease;
 }
+
+
+.popup-pdf {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.popup-pdf:target {
+    display: flex;
+}
+
+.popup-box-pdf {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 380px;
+    padding: 25px;
+    border-radius: 8px;
+    background: white;
+    text-align: center;
+}
+
+.popup-box-pdf h2 {
+    font-size: 20px;
+}
