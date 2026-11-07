@@ -33,12 +33,25 @@
                     </div>
                 </div>
             </div>
-            <a class="pdf-btn" href="#save-pdf">Guardar como PDF</a>
+            <a class="pdf-btn" href="#nomePDF">Guardar como PDF</a>
             <a class="pdf-btn" href="#">Remover Bilhete</a>
-            <div id="save-pdf" class="popup-pdf">
-                <div class="popup-box-pdf">
-                    <h2>Bilhete guardado com sucesso!</h2>
-                    <a class="confirm" href="verbilhete.html">OK</a>
+            <div class="popups">
+
+                <div id="nomePDF" class="popup-pdf">
+                    <div class="popup-box-pdf">
+                        <h2>Com que nome deve ser guardado o bilhete?</h2>
+                        <input type="text" placeholder="nome.pdf" id="input_nome">
+                        <br><br>
+                        <a class="confirm" href="#save-pdf">Confirmar</a>
+                        <a class="close" href="#">Cancelar</a>
+                    </div>
+                </div>
+
+                <div id="save-pdf" class="popup-pdf">
+                    <div class="popup-box-pdf">
+                        <h2>Bilhete guardado com sucesso!</h2>
+                        <a class="confirm" href="verbilhete.html">OK</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -91,7 +91,7 @@ main {
 }
 
 
-.popup-pdf {
+.popup-pdf, .popup-nomePDF {
     display: none;
     position: fixed;
     inset: 0;
@@ -101,11 +101,11 @@ main {
     padding: 20px;
 }
 
-.popup-pdf:target {
+.popup-pdf:target, .popup-nomePDF:target {
     display: flex;
 }
 
-.popup-box-pdf {
+.popup-box-pdf, .popup-nomePDF {
     box-sizing: border-box;
     width: 100%;
     max-width: 380px;
@@ -121,4 +121,34 @@ main {
 
 .voltar-btn {
     align-self: flex-start;
+}
+
+.confirm, .close {
+    display: inline-block;
+    margin-top: 20px;
+    width: 35%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.confirm{
+    background-color: #222;
+    color:white;
+}
+
+.close{
+    color: #222;
+    border: 1px solid #222;
+}
+
+#input_nome{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 16px;
 }
