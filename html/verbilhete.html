@@ -11,33 +11,35 @@
     
 
     <main>
-        <a href="bilhetes.html" class="voltar-btn">voltar</a>    
-        <div class="ticket-detail-card">
-            <h2>Super Rock</h2>
-            <div class="qr-container">
-                <img src="../files/qrcode.png" alt="Código QR do Bilhete" class="qr-image">
+        <div class="tlm">
+            <a href="bilhetes.html" class="voltar-btn">voltar</a>    
+            <div class="ticket-detail-card">
+                <h2>Super Rock</h2>
+                <div class="qr-container">
+                    <img src="../files/qrcode.png" alt="Código QR do Bilhete" class="qr-image">
+                </div>
+                <div class="ticket-info">
+                    <div class="info-row">
+                        <span class="label">Nº do Bilhete:</span>
+                        <span class="value">#534343</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Data:</span>
+                        <span class="value">12, 13 e 16 de Agosto de 2027</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Portador:</span>
+                        <span class="value">Lecheng</span>
+                    </div>
+                </div>
             </div>
-            <div class="ticket-info">
-                <div class="info-row">
-                    <span class="label">Nº do Bilhete:</span>
-                    <span class="value">#534343</span>
+            <a class="pdf-btn" href="#save-pdf">Guardar como PDF</a>
+            <a class="pdf-btn" href="#">Remover Bilhete</a>
+            <div id="save-pdf" class="popup-pdf">
+                <div class="popup-box-pdf">
+                    <h2>Bilhete guardado com sucesso!</h2>
+                    <a class="confirm" href="verbilhete.html">OK</a>
                 </div>
-                <div class="info-row">
-                    <span class="label">Data:</span>
-                    <span class="value">12, 13 e 16 de Agosto de 2027</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">Portador:</span>
-                    <span class="value">Lecheng</span>
-                </div>
-            </div>
-        </div>
-        <a class="pdf-btn" href="#save-pdf">Guardar como PDF</a>
-        <a class="pdf-btn" href="#">Remover Bilhete</a>
-        <div id="save-pdf" class="popup-pdf">
-            <div class="popup-box-pdf">
-                <h2>Bilhete guardado com sucesso!</h2>
-                <a class="confirm" href="verbilhete.html">OK</a>
             </div>
         </div>
     </main>

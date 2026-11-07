@@ -8,51 +8,53 @@
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
-    <main class="all">
-        <a href="./choice.html"  class="voltar-btn">voltar</a>
+    <div class="tlm">
+        <main class="all">
+            <a href="./choice.html"  class="voltar-btn">voltar</a>
 
-        <h1>Pagamento com Cartão</h1>
+            <h1>Pagamento com Cartão</h1>
 
-        <div class="form">
-            <label for="name">Nome no cartão</label>
-            <input id="name" name="name" type="text" placeholder="Nome completo" maxlength="70" autocomplete="off">
+            <div class="form">
+                <label for="name">Nome no cartão</label>
+                <input id="name" name="name" type="text" placeholder="Nome completo" maxlength="70" autocomplete="off">
 
-            <label for="number">Número do cartão</label>
-            <input id="number" name="number" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="off">
+                <label for="number">Número do cartão</label>
+                <input id="number" name="number" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="off">
 
-            <div class="row">
-                <div>
-                    <label for="expiry">Validade</label>
-                    <input id="expiry" name="expiry" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5" autocomplete="off">
+                <div class="row">
+                    <div>
+                        <label for="expiry">Validade</label>
+                        <input id="expiry" name="expiry" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5" autocomplete="off">
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input id="cvv" name="cvv" type="password" inputmode="numeric" placeholder="123" maxlength="3" autocomplete="off">
+                    </div>
                 </div>
-                <div>
-                    <label for="cvv">CVV</label>
-                    <input id="cvv" name="cvv" type="password" inputmode="numeric" placeholder="123" maxlength="3" autocomplete="off">
-                </div>
+
+                <a class="confirm" href="#confirmacao">Confirmar pagamento</a>
             </div>
 
-            <a class="confirm" href="#confirmacao">Confirmar pagamento</a>
-        </div>
-
-    </main>
-   <div id="confirmacao" class="popup">
-    <div class="popup-box">
-        <h2>Tem a certeza que deseja pagar?</h2>
-
-        <p>Super Bock Super Rock</p>
-        <p>Passe Geral</p>
-        <p>Preço: 120.00€</p>
-
-        <a class="confirm" href="#success">Confirmar</a>
-        <a class="close" href="#">Cancelar</a>
-    </div>
-    </div> 
-    
-    <div id="success" class="popup">
+        </main>
+    <div id="confirmacao" class="popup">
         <div class="popup-box">
-            <h2>Pagamento com sucesso!</h2>
-            <a class="confirm" href="recibo.html">Ver recibo</a>
-            <a class="close" href="#">Fechar</a>
+            <h2>Tem a certeza que deseja pagar?</h2>
+
+            <p>Super Bock Super Rock</p>
+            <p>Passe Geral</p>
+            <p>Preço: 120.00€</p>
+
+            <a class="confirm" href="#success">Confirmar</a>
+            <a class="close" href="#">Cancelar</a>
+        </div>
+        </div> 
+        
+        <div id="success" class="popup">
+            <div class="popup-box">
+                <h2>Pagamento com sucesso!</h2>
+                <a class="confirm" href="recibo.html">Ver recibo</a>
+                <a class="close" href="#">Fechar</a>
+            </div>
         </div>
     </div>
 </body>
