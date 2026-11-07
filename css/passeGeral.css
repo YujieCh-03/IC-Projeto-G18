@@ -4,6 +4,20 @@
     border: 5vmin;
  }
 
+ 
+#form_bilhete input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 16px;
+}
+
+
  .pagar-btn{
    padding: 15px 35px 15px 35px;
    border: 1px solid #ccc;
