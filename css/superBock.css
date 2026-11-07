@@ -6,7 +6,7 @@
 }
 
 .intro img {
-    width: 80px;
+    width: 50px;
     height: auto;
 }
 
@@ -35,18 +35,19 @@
 
 .gosto-btn {
     width: 100%;
+    margin-bottom: 5px;
 }
 
 .imgCartaz{
-    width:50vmin;
+    width:300px;
     height:auto;
 }
 
 .bilhetes{
     display: flex;
     flex-direction: column;
-    gap: 5vmin;
-    margin:5vmin;
+    gap: 10px;
+    margin:10px;
 }
 
 

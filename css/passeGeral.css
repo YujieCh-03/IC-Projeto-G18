@@ -5,7 +5,7 @@
  }
 
  .pagar-btn{
-   padding: 5vmin 15vmin 5vmin 15vmin;
+   padding: 15px 35px 15px 35px;
    border: 1px solid #ccc;
    background-color: black;
    color: white;
@@ -17,11 +17,10 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 20px 0;
 }
 
 .intro img {
-    width: 80px;
+    width: 50px;
     height: auto;
 }
 
@@ -30,4 +29,7 @@
     text-align: left;
 }
 
+.submit-btn{
+    margin-top: 10px;
+}
 
