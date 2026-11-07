@@ -35,3 +35,37 @@ body{
 .btn-mbway:hover{
     background: #444;
 }
+
+.pop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pop:target {
+    display: flex;
+}
+
+.popup-caixa {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 380px;
+    padding: 25px;
+    border-radius: 8px;
+    background: white;
+    text-align: center;
+}
+
+.popup-caixa h2 {
+    font-size: 20px;
+}
+
+.fechar {
+    display: inline-block;
+    margin-top: 20px;
+    color: #222;
+}
