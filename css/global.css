@@ -53,7 +53,7 @@ a{
     flex-direction: column;
     background-color: white;
     width: 340px;
-    height: 720px;
+    height: 730px;
     border-radius: 10px;
     border: 2px solid black ;
     overflow-y: auto;
@@ -80,7 +80,7 @@ a{
 .popup-caixa, .popup-aviso {
     box-sizing: border-box;
     width: 100%;
-    max-width: 380px;
+    max-width: 340px;
     padding: 25px;
     border-radius: 8px;
     background: white;
