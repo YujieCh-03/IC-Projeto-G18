@@ -13,19 +13,35 @@
 
         <h1>Pedido</h1>
         <div class="pedido_feito">
+            <p class="bar">Copo Meio Cheio</p>
             <div class="itens_pedido">
-                <div class="item_pedido">
-                    <p class="item_pedido_ind">Copo: 1</p>
-                    <p>1€</p>
-                </div>
-                <div class="item_pedido">
-                    <p class="item_pedido_ind">Cerveja, 25cl: 1</p>
-                    <p>1€</p>
-                </div>
-                <div class="item_pedido">
-                    <p class="item_pedido_ind">Seitana: 1</p>
-                    <p>3€</p>
-                </div>
+                <table class="tabela_pedido">
+                    <tr>
+                        <th>Item:</th>
+                        <th>Quantidade:</th>
+                        <th>Preço:</th>
+                    </tr>
+                    <tr>
+                        <td>Copo</td>
+                        <td>1</td>
+                        <td>1€</td>
+                    </tr>
+                    <tr>
+                        <td>Cerveja, 25cl</td>
+                        <td>1</td>
+                        <td>1€</td>
+                    </tr>
+                    <tr>
+                        <td>Seitana</td>
+                        <td>1</td>
+                        <td>3€</td>
+                    </tr>
+                    <tr>
+                        <th>Total:</th>
+                        <td>3</td>
+                        <th>5€</th>
+                    </tr>
+                </table>
             </div>
         </div>
         <div>
@@ -34,8 +50,10 @@
         <div id="pagamento" class="pop">
             <div class="popup-caixa">
                 <h2>Deseja continuar para o pagamento?</h2>
-                <a class="confirm" href="choice.html">Sim</a>
-                <a class="fechar" href="#">Fechar</a>
+                <div class="respostas_pagar">
+                    <a class="sim_pagar" href="choice2.html">Sim</a>
+                    <a class="fechar_pagar" href="#">Fechar</a>
+                </div>
             </div>
         </div>
     </div>

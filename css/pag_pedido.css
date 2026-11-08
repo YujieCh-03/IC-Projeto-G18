@@ -1,0 +1,47 @@
+.bar{
+    font-weight: bold;
+    font-size: large;
+}
+
+/* tabela */
+.itens_pedido{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tabela_pedido td, .tabela_pedido th{
+    padding: 10px;
+    text-align: left;
+} 
+.tabela_pedido{
+    margin-bottom: 100px;
+}
+
+/*botao pra seguir */
+.btn-pagamento{
+    background-color: #222;
+    color:white;
+    border-radius: 10px;
+    padding: 15px 30px;
+}
+
+/* pop up box */
+.respostas_pagar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.sim_pagar, .fechar_pagar{
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+.sim_pagar{
+    border: 1px solid #222;
+}
+.fechar_pagar{
+    color: white;
+    background-color: #222;
+}
