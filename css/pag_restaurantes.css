@@ -1,0 +1,57 @@
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+}
+
+#pesquisa_rest {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+}
+
+/* intro */
+.intro_restaurantes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.p1{
+    font-style: italic;
+}
+.p2{
+    background-color: #222;
+    color:white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* restaurantes */
+.restaurantes{
+    margin: 5px;
+    gap:10px;
+}
+.rest{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #222;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 5px;
+}
+.txt_rest{
+    text-align: end;
+}
+.nome_rest{
+    font-weight: bold;
+}
+.dist_rest{
+    font-style: italic;
+}
+.img_rest{
+    width: 50px;
+    height: auto;
+}

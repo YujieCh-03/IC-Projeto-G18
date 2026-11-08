@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>BandyApp</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <main>
+        <div class="tlm">
+            <a href="pag_restaurantes.html" class="voltar-btn">voltar</a>
+            <h1>Copo Meio Cheio</h1>
+
+            <h4>MENU:</h4>
+            <div class="pedir">
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Copo 50cl</p>
+                        <p class="preco_item">0.50€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Super Bock, 25cl</p>
+                        <p class="preco_item">1.00€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Super Bock, 50cl</p>
+                        <p class="preco_item">1.75€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Somersby, 25cl</p>
+                        <p class="preco_item">1.20€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Água, 50cl</p>
+                        <p class="preco_item">1.00€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Sandes de Ovo</p>
+                        <p class="preco_item">3.00€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Bifana</p>
+                        <p class="preco_item">3.00€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Seitana (veg)</p>
+                        <p class="preco_item">3.00€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+                <div class="item">
+                    <div class="txt_item">
+                        <p class="nome_item">Sopa</p>
+                        <p class="preco_item">2.00€</p>
+                    </div>
+                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                </div>
+            </div>
+            <div class="total">
+                <p><strong>Total:</strong> 5€</p>
+            </div>
+            <div class="horas">
+                <h4>Hora de pedido:</h4>
+                <div class="caixa_horas">
+                    <input type="time" class="hora_input">
+                    <a href="#pedido" class="ajuda_hora">Ajuda</a>
+                    <a href="#fazer_pedido" class="fazer_pedido">Pedir</a>
+                </div>
+
+                <div id="fazer_pedido" class="pop">
+                    <div class="popup-caixa">
+                        <p>Tem a certeza que quer fazer este pedido?</p>
+                        <div class="btn-fazer_pedido">
+                            <a class="ped1" href="pag_pedido.html">Confirmar</a>
+                            <a class="ped2" href="#">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pedido" class="pop">
+                    <div class="popup-caixa">
+                        <p>Hora do pedido: hora apartir do momento em que o seu pedido está pronto, pode sofrer atrasos. 
+                            Existe uma tolerância de 10 min após o seu pedido ser anunciado, depois desse tempo o pedido vai ser doado.</p>
+                        <a class="fechar" href="#">Fechar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
