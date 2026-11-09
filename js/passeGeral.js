@@ -28,12 +28,6 @@ function prepararCompra() {
     const confirmacao = document.getElementById('certeza1');
     quantidade.required = true;
     confirmacao.style.display = 'none';
-    const idPedido = parametros.get("pedido");
-    const anterior = lerPedido(idPedido);
-    if (anterior !== null && anterior.codigo === codigo && !lerCompra(idPedido)) {
-        quantidade.value = anterior.quantidade;
-        nome.value = anterior.nome;
-    }
 
     document.querySelector('.pagar-btn').addEventListener('click', function (event) {
         event.preventDefault();
