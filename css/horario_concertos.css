@@ -1,0 +1,36 @@
+.horario .horario-voltar {
+    display: block;
+    width: 50px;
+    height:#000000;
+    font-size: large;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #ccccccd0;
+    color: #551a8b;
+    text-decoration: none;
+    align-self: flex-start;
+    flex-shrink: 0;
+    margin-bottom: 8px;
+}
+
+.horario h1 {
+    margin: 8px 0 16px;
+    font-size: 22px;
+}
+
+.horario-tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.horario-tabela th,
+.horario-tabela td {
+    padding: 10px 6px;
+    border: 1px solid black;
+}
+
+.horario-tabela th:first-child,
+.horario-tabela td:first-child {
+    text-align: left;
+}
