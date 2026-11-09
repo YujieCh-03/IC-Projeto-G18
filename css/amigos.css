@@ -1,0 +1,13 @@
+.adicionar{
+    display:block;
+    border:2px solid #222;
+    max-width:220px;
+    border-radius: 2px;
+    width:100%;
+    padding:20px;
+    margin:0 auto;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
