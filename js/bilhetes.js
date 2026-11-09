@@ -68,7 +68,6 @@ if (lista !== null) {
             atualizarLista();
         }
     });
-    window.addEventListener('storage', atualizarLista);
 } else {
     mostrarBilhete();
 }
