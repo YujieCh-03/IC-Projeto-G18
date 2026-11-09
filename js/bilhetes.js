@@ -9,15 +9,6 @@ function atualizarLista() {
     lista.textContent = '';
     vazio.hidden = bilhetes.length > 0;
 
-    if (bilhetes.length === 0) {
-        salto = setTimeout(function () {
-            if (lerCarteira().bilhetes.length === 0) {
-                location.replace('pag_comprarBilhetes.html');
-            }
-        }, 5000);
-        return;
-    }
-
     for (let i = 0; i < bilhetes.length; i++) {
         const bilhete = bilhetes[i];
         const compra = carteira.compras[bilhete.compra];
