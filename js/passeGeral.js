@@ -43,6 +43,7 @@ function prepararCompra() {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         const pedido = {
+            id: String(Math.random()),
             codigo: codigo,
             festival: festival,
             tipo: selecao.tipo,
