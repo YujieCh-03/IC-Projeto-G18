@@ -10,17 +10,16 @@
     <script src="../js/bilhetes.js" defer></script>
 </head>
 <body>
-    
     <main>
         <div class="tlm">
             <a href="main.html" class="voltar-btn">voltar</a>
-            <h2>Escolhe o bilhetes</h2>
+            <h2>Os meus bilhetes</h2>
 
-            <div class="ticket-list">
-                
-                <a href="verbilhete.html" class="ticket-card">
-                    <h3>Super Rock</h3>
-                </a>
+            <div class="ticket-list" id="lista-bilhetes"></div>
+            <div id="sem-bilhetes" hidden>
+                <p>Ainda não tens bilhetes. Por favor, compra um bilhete.</p>
+                <a class="primario" href="pag_comprarBilhetes.html">Comprar Bilhetes</a>
+                <p>A página de compra abre em 5 segundos.</p>
             </div>
         </div>
     </main>
