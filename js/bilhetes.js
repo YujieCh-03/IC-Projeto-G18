@@ -28,11 +28,8 @@ function atualizarLista() {
         titulo.textContent = compra.festival;
         const tipo = document.createElement("p");
         tipo.textContent = compra.tipo + ' · ' + compra.datas;
-        const numero = document.createElement("small");
-        numero.textContent = numeroBilhete(bilhete);
         cartao.appendChild(titulo);
         cartao.appendChild(tipo);
-        cartao.appendChild(numero);
         lista.appendChild(cartao);
     }
 }
