@@ -6,56 +6,58 @@
     <title>Pagamento com Cartão</title>
     <link rel="stylesheet" href="../css/card.css">
     <link rel="stylesheet" href="../css/global.css">
+    <script src="../js/compras.js" defer></script>
+    <script src="../js/pagamento.js" defer></script>
+    <script src="../js/card.js" defer></script>
 </head>
-<body>
+<body data-pagina="pagamento">
     <div class="tlm">
         <main class="all">
-            <a href="./choice.html"  class="voltar-btn">voltar</a>
+            <a href="choice.html" class="voltar-btn" id="voltar-pagamento">voltar</a>
 
             <h1>Pagamento com Cartão</h1>
+            <div class="resumo-compra resumo"></div>
 
-            <div class="form">
+            <form class="form" id="form-pagamento" data-metodo="Cartão bancário">
                 <label for="name">Nome no cartão</label>
-                <input id="name" name="name" type="text" placeholder="Nome completo" maxlength="70" autocomplete="off">
+                <input id="name" type="text" placeholder="Nome completo" maxlength="70" required>
 
                 <label for="number">Número do cartão</label>
-                <input id="number" name="number" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="off">
+                <input id="number" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" pattern="[0-9]{4}( [0-9]{4}){3}" required>
 
                 <div class="row">
                     <div>
                         <label for="expiry">Validade</label>
-                        <input id="expiry" name="expiry" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5" autocomplete="off">
+                        <input id="expiry" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5" pattern="(0[1-9]|1[0-2])/[0-9]{2}" required>
                     </div>
                     <div>
                         <label for="cvv">CVV</label>
-                        <input id="cvv" name="cvv" type="password" inputmode="numeric" placeholder="123" maxlength="3" autocomplete="off">
+                        <input id="cvv" type="password" inputmode="numeric" placeholder="123" maxlength="3" pattern="[0-9]{3}" required>
                     </div>
                 </div>
 
-                <a class="confirm" href="#confirmacao">Confirmar pagamento</a>
-            </div>
-
+                <button class="confirm" type="submit">Confirmar pagamento</button>
+            </form>
         </main>
-    <div id="confirmacao" class="popup">
-        <div class="popup-box">
-            <h2>Tem a certeza que deseja pagar?</h2>
 
-            <p>Super Bock Super Rock</p>
-            <p>Passe Geral</p>
-            <p>Preço: 120.00€</p>
-
-            <a class="primario" href="#success">Confirmar</a>
-            <a class="secundario" href="#">Cancelar</a>
+        <div id="confirmacao" class="pop" hidden>
+            <div class="popup-box">
+                <h2>Tem a certeza que deseja pagar?</h2>
+                <div class="resumo"></div>
+                <p id="erro-pagamento" role="alert" hidden></p>
+                <button class="primario" type="button" id="confirmar-pagamento">Confirmar</button>
+                <a class="secundario" href="#">Cancelar</a>
+            </div>
         </div>
-        </div> 
-        
-        <div id="success" class="popup">
+
+        <div id="sucesso" class="pop" hidden>
             <div class="popup-box">
                 <h2>Pagamento com sucesso!</h2>
-                <a class="primario" href="recibo.html">Ver recibo</a>
-                <a class="secundario" href="#">Fechar</a>
+                <a class="primario" href="recibo.html" id="ver-recibo">Ver recibo</a>
+                <a class="secundario" href="bilhetes.html" id="destino-pagamento">Ver bilhetes</a>
             </div>
         </div>
     </div>
 </body>
 </html>
+
