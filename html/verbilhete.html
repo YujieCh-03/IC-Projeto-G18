@@ -10,33 +10,36 @@
     <script src="../js/bilhetes.js" defer></script>
 </head>
 <body>
-    
-
     <main>
         <div class="tlm">
             <a href="bilhetes.html" class="voltar-btn">voltar</a>    
             <div class="ticket-detail-card">
-                <h2>Super Rock</h2>
+                <h2 id="festival-bilhete"></h2>
                 <div class="qr-container">
                     <img src="../files/qrcode.png" alt="Código QR do Bilhete" class="qr-image">
                 </div>
                 <div class="ticket-info">
                     <div class="info-row">
                         <span class="label">Nº do Bilhete:</span>
-                        <span class="value">#534343</span>
+                        <span class="value" id="numero-bilhete"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Tipo:</span>
+                        <span class="value" id="tipo-bilhete"></span>
                     </div>
                     <div class="info-row">
                         <span class="label">Data:</span>
-                        <span class="value">12, 13 e 16 de Agosto de 2027</span>
+                        <span class="value" id="datas-bilhete"></span>
                     </div>
                     <div class="info-row">
                         <span class="label">Portador:</span>
-                        <span class="value">Lecheng</span>
+                        <span class="value" id="nome-bilhete"></span>
                     </div>
                 </div>
             </div>
             <a class="pdf-btn" href="#nomePDF">Guardar como PDF</a>
-            <a class="pdf-btn" href="#">Remover Bilhete</a>
+            <button class="pdf-btn" type="button" id="remover-bilhete">Remover Bilhete</button>
+            <p id="erro-remocao" role="alert" hidden></p>
             <div class="popups">
 
                 <div id="nomePDF" class="popup-pdf">
@@ -52,7 +55,7 @@
                 <div id="save-pdf" class="popup-pdf">
                     <div class="popup-box-pdf">
                         <h2>Bilhete guardado com sucesso!</h2>
-                        <a class="primario" href="verbilhete.html">OK</a>
+                        <a class="primario" href="#">OK</a>
                     </div>
                 </div>
             </div>
