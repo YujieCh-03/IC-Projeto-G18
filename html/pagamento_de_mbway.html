@@ -7,31 +7,45 @@
     <link rel="stylesheet" href="../css/mbway.css">
     <meta name="viewport"
     content="width=device-width,initial-scale=1.0">
+    <script src="../js/compras.js" defer></script>
+    <script src="../js/pagamento.js" defer></script>
 </head>
 <body>
     <div class="tlm">
-        <a href="./choice.html" class="voltar-btn">voltar</a>
+        <a href="choice.html" class="voltar-btn" id="voltar-pagamento">voltar</a>
 
-        <h1>MBway</h1>
+        <h1>MB WAY</h1>
+        <div class="resumo"></div>
 
-        <div class="mbway">
-            <label class="codigo_pais">Código do país</label>
+        <form class="mbway" id="form-pagamento" data-metodo="MB WAY">
+            <label class="codigo_pais" for="codigo-pais">Código do país</label>
             <br>
-            <select class="selectMBWay">
+            <select class="selectMBWay" id="codigo-pais">
                 <option>+351</option>
             </select>
             <br>
-            <label class="numero_telemovel">Número de telemóvel</label>
+            <label class="numero_telemovel" for="telemovel">Número de telemóvel</label>
             <br>
-            <input class="inputMBWay" type="tel" placeholder="912345678">
+            <input class="inputMBWay" id="telemovel" type="tel" inputmode="numeric" placeholder="912345678" maxlength="9" required>
             <br>
-            <a href="#sucesso" class="btn-mbway">continuar</a>
+            <button class="btn-mbway" type="submit">Continuar</button>
+        </form>
+
+        <div id="confirmacao" class="pop" style="display: none">
+            <div class="popup-caixa">
+                <h2>Tem a certeza que deseja pagar?</h2>
+                <div class="resumo"></div>
+                <p id="erro-pagamento" role="alert" hidden></p>
+                <button class="primario" type="button" id="confirmar-pagamento">Confirmar</button>
+                <a class="secundario" href="#">Cancelar</a>
+            </div>
         </div>
-        <div id="sucesso" class="pop">
+
+        <div id="sucesso" class="pop" style="display: none">
             <div class="popup-caixa">
                 <h2>Pagamento com sucesso!</h2>
-                <a class="primario" href="recibo.html">Ver recibo</a>
-                <a class="secundario" href="#">Fechar</a>
+                <a class="primario" href="recibo.html" id="ver-recibo">Ver recibo</a>
+                <a class="secundario" href="bilhetes.html" id="destino-pagamento">Ver bilhetes</a>
             </div>
         </div>
     </div>
