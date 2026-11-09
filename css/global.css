@@ -86,3 +86,29 @@ a{
     background: white;
     text-align: center;
 }
+
+.primario, .secundario {
+    display: inline-block;
+    margin-top: 20px 5px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.primario{
+    background-color: #222;
+    color:white;
+}
+
+.secundario{
+    color: #222;
+    border: 1px solid #222;
+}
+
+.respostas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:15px;
+    margin-top: 15px;
+}

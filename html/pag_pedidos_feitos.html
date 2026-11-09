@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>BandyApp</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+    <div class="tlm">
+        <a href="./pag_restaurantes.html" class="voltar-btn">voltar</a>
+
+        <h2>Pedidos Feitos</h2>
+
+        <div class="pag_pedidos">
+            <div class="pedido_porLevantar">
+                <div>
+                    <p class="nome_bar">Copo Meio Cheio</p>
+                    <p class="tempo_espera">Tempo de Espera: <i>20min</i></p>
+                </div>
+                <div class="btn-qrcode_recibo">
+                    <a href="#qrcode_pedido" class="btn-qrcode_pedido">QR Code</a>
+                    <a href="#recibo_pedido1" class="btn-recibo_pedido">Recibo</a>
+                </div>
+            </div>
+            <div class="pedido_levantado">
+                <div>
+                    <p class="nome_bar">Cantina</p>
+                    <p class="tempo_espera">Tempo de Espera: <i>0min</i></p>
+                </div>
+                <div class="btn-qrcode_recibo">
+                    <a href="#apagar_pedido" class="btn-apagar_pedido">Apagar</a>
+                    <a href="#recibo_pedido2" class="btn-recibo_pedido">Recibo</a>
+                </div>
+            </div>
+        </div>
+        <div id="qrcode_pedido" class="pop">
+            <div class="popup-caixa">
+                <img class="qrcode_pedido" src="../files/qrcode.png">
+                <a class="secundario" href="#">Fechar</a>
+            </div>
+        </div>
+
+        <div id="recibo_pedido1" class="pop">
+            <div class="popup-caixa">
+                <h2>Recibo:</h2>
+                <p>Copo (1): 1.0€ <br>
+                    Cerveja, 25cl (1): 1.0€ <br>
+                    Seitana (1): 3.0€<br>
+                    <b>Total: 5.0€</b>
+                </p>
+                <div class="respostas">
+                    <a class="primario" href="#recibo_pedido-pdf">Guardar Recibo</a>
+                    <a class="secundario" href="#">Fechar</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="recibo_pedido2" class="pop">
+            <div class="popup-caixa">
+                <h2>Recibo:</h2>
+                <p>Sopa (1): 2.0€ <br>
+                    <b>Total: 2.0€</b>
+                </p>
+                <div class="respostas">
+                    <a class="primario" href="#recibo_pedido-pdf">Guardar Recibo</a>
+                    <a class="secundario" href="#">Fechar</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="apagar_pedido" class="pop">
+            <div class="popup-caixa">
+                <p>Tem a certeza que quer apagar este pedido?</p>
+                <a class="secundario" href="#recibo_pedido-pdf">Guardar Recibo Antes</a>
+                <div class="respostas">
+                    <a class="primario" href="#">Não Apagar!</a>
+                    <a class="secundario" href="#">Apagar</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="recibo_pedido-pdf" class="pop">
+            <div class="popup-caixa">
+                <h2>Com que nome deseja guardar o recibo?</h2>
+                <input type="text" placeholder="nome_pedido.pdf" class="nome_pedido_input">
+                <div class="respostas">
+                    <a class="primario" href="#">Confirmar</a>
+                    <a class="secundario" href="#">Fechar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

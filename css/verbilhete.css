@@ -123,24 +123,6 @@ main {
     align-self: flex-start;
 }
 
-.confirm, .close {
-    display: inline-block;
-    margin-top: 20px;
-    width: 35%;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.confirm{
-    background-color: #222;
-    color:white;
-}
-
-.close{
-    color: #222;
-    border: 1px solid #222;
-}
-
 #input_nome{
     box-sizing: border-box;
     display: block;

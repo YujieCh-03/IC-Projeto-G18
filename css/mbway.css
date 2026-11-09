@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-body{
-    font-family: Arial, sans-serif;
-    background: white;
-    color: black;
-}
-
 .btn-mbway{
     display: block;
     margin-left: auto;
