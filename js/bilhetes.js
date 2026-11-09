@@ -1,9 +1,7 @@
 const lista = document.getElementById("lista-bilhetes");
 const vazio = document.getElementById("sem-bilhetes");
-let salto;
 
 function atualizarLista() {
-    clearTimeout(salto);
     const carteira = lerCarteira();
     const bilhetes = carteira.bilhetes;
     lista.textContent = '';
@@ -69,9 +67,6 @@ if (lista !== null) {
         if (event.persisted) {
             atualizarLista();
         }
-    });
-    window.addEventListener('pagehide', function () {
-        clearTimeout(salto);
     });
     window.addEventListener('storage', atualizarLista);
 } else {
