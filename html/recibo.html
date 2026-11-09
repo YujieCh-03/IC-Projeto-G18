@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recibo - BANDyApp</title>
-    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/card.css">
+    <script src="../js/compras.js" defer></script>
+    <script src="../js/pagamento.js" defer></script>
 </head>
 <body>
     <div class="tlm">
@@ -14,13 +17,13 @@
             <div class="bill" id="bill">
                 <h2>BANDyApp - Recibo</h2>
                 <p><strong>Estado:</strong> Pago</p>
-                <p><strong>Método:</strong> Cartão bancário</p>
-                <p><strong>Data:</strong> 04/11/2026</p>
-                <p><strong>Total:</strong> 120.00 €</p>
+                <p><strong>Método:</strong> <span id="metodo-recibo"></span></p>
+                <p><strong>Data:</strong> <span id="data-recibo"></span></p>
+                <div class="resumo"></div>
             </div>
 
             <a class="save" href="#save">Guardar recibo</a>
-            <a class="save" href="bilhetes.html">Ver bilhetes</a>
+            <a class="save" href="bilhetes.html" id="destino-pagamento">Ver bilhetes</a>
             <div id="save" class="popup">
                 <div class="popup-box">
                     <h2>Recibo guardado com sucesso!</h2>
@@ -31,3 +34,4 @@
     </div>
 </body>
 </html>
+
