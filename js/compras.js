@@ -1,11 +1,13 @@
 const chavePedido = 'bandy.pedido';
+const chavePedidoBar = 'bandy.pedidoBar';
 const chaveCarteira = 'bandy.carteira';
 const chaveReciboBar = 'bandy.reciboBar';
 const prefixoCompra = 'bandy.compra.';
+const prefixoReciboBar = 'bandy.reciboBar.';
 const prefixoRemocao = 'bandy.bilheteRemovido.';
 
-function lerPedido(idPedido) {
-    const pedido = JSON.parse(sessionStorage.getItem(chavePedido));
+function lerPedido(idPedido, chave = chavePedido) {
+    const pedido = JSON.parse(sessionStorage.getItem(chave));
 
     if (pedido === null) {
         return null;
@@ -17,7 +19,6 @@ function lerPedido(idPedido) {
 }
 
 function lerCarteira() {
-    // A chave bandy.carteira contém os bilhetes da versão anterior.
     let carteira = JSON.parse(localStorage.getItem(chaveCarteira));
     if (carteira === null) {
         carteira = { compras: {}, bilhetes: [] };
@@ -52,9 +53,9 @@ function lerCarteira() {
     return carteira;
 }
 
-function lerCompra(idPedido) {
-    const compra = JSON.parse(localStorage.getItem(prefixoCompra + idPedido));
-    if (compra !== null) {
+function lerCompra(idPedido, prefixo = prefixoCompra) {
+    const compra = JSON.parse(localStorage.getItem(prefixo + idPedido));
+    if (compra !== null || prefixo !== prefixoCompra) {
         return compra;
     }
 
@@ -74,10 +75,18 @@ function formatarEuros(valor) {
 
 function mostrarResumo(pedido) {
     const linhas = [pedido.festival, pedido.tipo];
-    if (pedido.datas) {
+    if (pedido.itens) {
+        for (const item of pedido.itens) {
+            linhas.push(item.quantidade + ' × ' + item.nome + ' · ' + formatarEuros(item.quantidade * item.preco));
+        }
+        if (pedido.hora) {
+            linhas.push('Hora do pedido: ' + pedido.hora);
+        }
+    } else if (pedido.datas) {
         linhas.push(pedido.datas, 'Quantidade: ' + pedido.quantidade + ' × ' + formatarEuros(pedido.preco));
     }
-    linhas.push('Total: ' + formatarEuros(pedido.quantidade * pedido.preco));
+    const total = pedido.total ?? (pedido.quantidade * pedido.preco);
+    linhas.push('Total: ' + formatarEuros(total));
 
     const resumos = document.querySelectorAll('.resumo');
     for (let i = 0; i < resumos.length; i++) {
@@ -90,10 +99,15 @@ function mostrarResumo(pedido) {
     }
 }
 
-function ligarAoPedido() {
+function ligarAoPedido(idPedido) {
     const destino = document.getElementById("destino-pagamento");
-    destino.href = "pag_pedido.html";
-    destino.textContent = "Voltar ao pedido";
+    if (idPedido === null) {
+        destino.href = "pag_bar.html";
+        destino.textContent = "Voltar ao menu";
+    } else {
+        destino.href = 'pag_pedido.html?pedido=' + idPedido;
+        destino.textContent = "Voltar ao pedido";
+    }
 }
 
 function numeroBilhete(bilhete) {
