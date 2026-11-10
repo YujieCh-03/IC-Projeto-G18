@@ -12,9 +12,52 @@
      <a class="sair" href="main.html"
    aria-label="Voltar ao menu principal">Sair</a>
 
-<div class="mapa-area">
+<div class="mapa-area" id="mapa">
     <img class="mapa" src="../files/mapa-festival.png"
          alt="Mapa do recinto do festival">
+
+    <a class="mapa-ponto palco1"
+       href="horario_concertos.html"
+       aria-label="Ver horários do Palco 1"></a>
+
+    <a class="mapa-ponto palco2"
+       href="horario_concertos.html"
+       aria-label="Ver horários do Palco 2"></a>
+
+    <a class="mapa-ponto palco3"
+       href="horario_concertos.html"
+       aria-label="Ver horários do Palco 3"></a>
+
+    <a class="mapa-ponto restaurante1"
+       href="pag_restaurantes.html"
+       aria-label="Encomendar comida no Restaurante 1"></a>
+
+    <a class="mapa-ponto restaurante2"
+       href="pag_restaurantes.html"
+       aria-label="Encomendar comida no Restaurante 2"></a>
+
+    <a class="mapa-ponto restaurante3"
+       href="pag_restaurantes.html"
+       aria-label="Encomendar comida no Restaurante 3"></a>
+
+    <a class="mapa-ponto wc1"
+       href="#estado-wc"
+       aria-label="Ver ocupação do WC 1"></a>
+
+    <a class="mapa-ponto wc2"
+       href="#estado-wc"
+       aria-label="Ver ocupação do WC 2"></a>
+
+    <a class="mapa-ponto wc3"
+       href="#estado-wc"
+       aria-label="Ver ocupação do WC 3"></a>
+
+    <a class="mapa-ponto socorros"
+       href="#pedir-socorro"
+       aria-label="Pedir primeiros socorros"></a>
+<div class="minha-posicao" role="img" aria-label="Está aqui">
+    <span>Está aqui</span>
+</div>
 </div>
 
         <nav class="botoes" aria-label="Menu do festival">
@@ -24,5 +67,37 @@
             <a href="saude.html">Saúde</a>
         </nav>
     </main>
+    <div class="pop mapa-popup" id="estado-wc">
+    <div class="popup-caixa">
+        <h2>Ocupação do WC</h2>
+        <p>Este WC tem poucas pessoas neste momento.</p>
+        <a class="secundario" href="#mapa">Fechar</a>
+    </div>
+</div>
+
+<div class="pop mapa-popup" id="pedir-socorro">
+    <div class="popup-caixa">
+        <h2>Primeiros socorros</h2>
+        <p>Precisa de assistência?</p>
+
+        <div class="respostas">
+            <a class="primario" href="#socorro-enviado">
+                Pedir ajuda
+            </a>
+            <a class="secundario" href="#mapa">
+                Cancelar
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="pop mapa-popup" id="socorro-enviado">
+    <div class="popup-caixa">
+        <h2>Pedido enviado</h2>
+        <p>A equipa de socorro está a caminho do seu local.</p>
+        <p><small>Simulação do protótipo.</small></p>
+        <a class="primario" href="#mapa">OK</a>
+    </div>
+</div>
 </body>
 </html>

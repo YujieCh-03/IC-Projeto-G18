@@ -1,88 +1,125 @@
-const MIN = 0;
-const MAX = 10;
-const totalSpan = document.getElementById("total");
+function prepararPedidoBar(menu) {
+    const total = document.querySelector('.total p').lastChild;
+    const hora = document.querySelector('.hora_input');
+    const pedir = document.querySelector('.fazer_pedido');
+    const confirmar = document.querySelector('#fazer_pedido .primario');
+    const idPedido = new URLSearchParams(location.search).get('pedido');
+    const anterior = lerPedido(idPedido, chavePedidoBar);
+    const itensMenu = [];
 
-dicionarioPrecos = {
-    item1: 0.50,
-    item2: 1.0,
-    item3: 1.75,
-    item4: 1.2,
-    item5: 1.0,
-    item6: 3.0,
-    item7: 3.0,
-    item8: 3.0,
-    item9: 2.0,
-}
-dicionarioIntems = {
-    item1: "Copo 50cl",
-    item2: "Super Bock, 25cl",
-    item3: "Super Bock, 50cl",
-    item4: "Somersby, 25cl",
-    item5: "Água, 50cl",
-    item6: "Sandes de Ovo",
-    item7: "Bifana",
-    item8: "Seitana (veg)",
-    item9: "Sopa",
-}
+    for (const item of menu.querySelectorAll('.item')) {
+        const nome = item.querySelector('.nome_item').textContent.trim();
+        const preco = parseFloat(item.querySelector('.preco_item').textContent.replace(',', '.'));
+        const campo = item.querySelector('.quant_item');
+        itensMenu.push({ nome, preco, campo });
 
-
-
-document.addEventListener("click", (event) => {
-    const btn = event.target.closest(".btn-menos, .btn-mais");
-    if (!btn) return;
-    const span = btn.parentElement.querySelector("span");
-
-
-    let qtd = parseInt(span.textContent);
-
-    if (btn.classList.contains("btn-menos")){
-        if (qtd > MIN) {
-           qtd -= 1
-        }
+        const escolhido = anterior && anterior.itens.find(item => item.nome === nome);
+        if (escolhido) campo.value = escolhido.quantidade;
     }
-    if (btn.classList.contains("btn-mais")){
-        if (qtd < MAX) {
-            qtd += 1
+    if (anterior) hora.value = anterior.hora;
+
+    function lerMenu() {
+        const itens = [];
+        let centimos = 0;
+        for (const item of itensMenu) {
+            const quantidade = item.campo.valueAsNumber;
+            if (quantidade > 0) {
+                itens.push({ nome: item.nome, preco: item.preco, quantidade });
+                centimos += quantidade * Math.round(item.preco * 100);
+            }
         }
+        return { itens, total: centimos / 100 };
     }
 
-    span.textContent = qtd;
+    function atualizarTotal() {
+        total.textContent = ' ' + formatarEuros(lerMenu().total);
+    }
     atualizarTotal();
-});
+    menu.addEventListener('input', atualizarTotal);
 
-function atualizarTotal(){
-    let total = 0;
-    
-    document.querySelectorAll('[id^="quantidade-item"]').forEach(span => {
-        const qtd = parseInt(span.textContent);
-        const numero = span.id.replace("quantidade-item", "");
-        const chave = "item" + numero;
-        total += qtd * dicionarioPrecos[chave];
+    function lerPedidoValido() {
+        for (const item of itensMenu) {
+            if (!item.campo.reportValidity()) return null;
+        }
+        if (!hora.reportValidity()) return null;
+
+        const pedido = lerMenu();
+        if (pedido.itens.length === 0) {
+            alert('Escolha pelo menos um item para fazer o pedido.');
+            return null;
+        }
+        return pedido;
+    }
+
+    pedir.addEventListener('click', function (event) {
+        if (lerPedidoValido() === null) event.preventDefault();
     });
-    totalSpan.textContent = total;
+
+    confirmar.addEventListener('click', function (event) {
+        event.preventDefault();
+        const pedido = lerPedidoValido();
+        if (pedido === null) return;
+
+        pedido.id = String(Math.random());
+        pedido.festival = document.querySelector('h1').textContent;
+        pedido.tipo = 'Pedido do bar';
+        pedido.hora = hora.value;
+
+        try {
+            sessionStorage.setItem(chavePedidoBar, JSON.stringify(pedido));
+        } catch {
+            alert('Não foi possível guardar o pedido. Tente novamente.');
+            return;
+        }
+
+        location.href = confirmar.href + '?pedido=' + pedido.id;
+    });
 }
 
-document.getElementById("pedir_bar").addEventListener("click", () => {
-    let total = 0;
+function mostrarPedidoBar() {
+    const idPedido = new URLSearchParams(location.search).get('pedido');
+    const recibo = lerCompra(idPedido, prefixoReciboBar);
+    const pedido = recibo || lerPedido(idPedido, chavePedidoBar);
+    if (!pedido) {
+        location.replace('pag_bar.html');
+        return;
+    }
 
-    document.querySelectorAll('[id^="quantidade-item"]').forEach(span => {
-        const qtd = parseInt(span.textContent);
+    document.getElementById('nome-bar').textContent = pedido.festival;
+    if (pedido.hora) {
+        const hora = document.getElementById('hora-pedido');
+        hora.textContent = 'Hora do pedido: ' + pedido.hora;
+        hora.hidden = false;
+    }
 
-        if (qtd==0) return;
+    const tabela = document.getElementById('itens-pedido');
+    let quantidade = 0;
+    for (const item of pedido.itens) {
+        const linha = tabela.insertRow();
+        linha.insertCell().textContent = item.nome;
+        linha.insertCell().textContent = item.quantidade;
+        linha.insertCell().textContent = formatarEuros(item.quantidade * item.preco);
+        quantidade += item.quantidade;
+    }
+    document.getElementById('quantidade-pedido').textContent = quantidade;
+    document.getElementById('total-pedido').textContent = formatarEuros(pedido.total);
 
-        const item = []
+    const voltar = document.getElementById('voltar-bar');
+    if (recibo) {
+        voltar.href = 'pag_restaurantes.html';
+        const pagar = document.getElementById('pagar-pedido');
+        pagar.href = 'recibo.html?origem=bar&pedido=' + pedido.id;
+        pagar.textContent = 'Ver recibo';
+        document.getElementById('pagamento').style.display = 'none';
+    } else {
+        voltar.href = 'pag_bar.html?pedido=' + pedido.id;
+        document.getElementById('continuar-pedido').href = 'choice2.html?pedido=' + pedido.id;
+    }
+}
 
-        const numero = span.id.replace("quantidade-item", "");
-        const chave = "item" + numero;
-        const preco_item = qtd * dicionarioPrecos[chave];
-
-        item.push(dicionarioIntems[chave]);
-        item.push(dicionarioPrecos[chave]);
-        item.push(qtd);
-        item.push(preco_item);
-        sessionStorage.setItem(chave, JSON.stringify(item));
-
-        total += preco_item;
-    });
-    sessionStorage.setItem("total_pedido", total);
-})
+const menuBar = document.querySelector('.pedir');
+if (menuBar) {
+    prepararPedidoBar(menuBar);
+} else {
+    mostrarPedidoBar();
+}

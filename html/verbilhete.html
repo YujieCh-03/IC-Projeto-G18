@@ -38,9 +38,17 @@
                 </div>
             </div>
             <a class="pdf-btn" href="#nomePDF">Guardar como PDF</a>
-            <button class="pdf-btn" type="button" id="remover-bilhete">Remover Bilhete</button>
-            <p id="erro-remocao" role="alert" hidden></p>
+            <a class="pdf-btn" href="#confirmar-remocao">Remover Bilhete</a>
             <div class="popups">
+
+                <div id="confirmar-remocao" class="pop">
+                    <div class="popup-box-pdf">
+                        <h2>Tens a certeza de que queres remover este bilhete?</h2>
+                        <p id="erro-remocao" role="alert" hidden></p>
+                        <button class="primario" type="button" id="remover-bilhete">Confirmar</button>
+                        <a class="secundario" href="#">Cancelar</a>
+                    </div>
+                </div>
 
                 <div id="nomePDF" class="popup-pdf">
                     <div class="popup-box-pdf">
@@ -63,3 +71,4 @@
     </main>
 </body>
 </html>
+

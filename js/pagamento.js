@@ -1,52 +1,49 @@
 function escolherPagamento() {
+    const voltar = document.getElementById("voltar-compra");
+    const origemBar = voltar.dataset.origem === "bar";
     const idPedido = new URLSearchParams(location.search).get("pedido");
-    if (lerCompra(idPedido)) {
-        location.replace('recibo.html?pedido=' + idPedido);
+    const prefixo = origemBar ? prefixoReciboBar : prefixoCompra;
+    const consulta = (origemBar ? '?origem=bar&pedido=' : '?pedido=') + idPedido;
+    if (lerCompra(idPedido, prefixo)) {
+        location.replace('recibo.html' + consulta);
         return;
     }
 
-    const pedido = lerPedido(idPedido);
+    const pedido = lerPedido(idPedido, origemBar ? chavePedidoBar : chavePedido);
     if (!pedido) {
-        location.replace("pag_SuperBock.html");
+        location.replace(origemBar ? "pag_bar.html" : "pag_SuperBock.html");
         return;
     }
 
     mostrarResumo(pedido);
-    document.getElementById("voltar-compra").href =
-        'passeGeral.html?tipo=' + pedido.codigo + '&pedido=' + pedido.id;
-    document.getElementById("pagar-cartao").href = 'card.html?pedido=' + pedido.id;
-    document.getElementById("pagar-mbway").href = 'pagamento_de_mbway.html?pedido=' + pedido.id;
+    voltar.href = origemBar ? 'pag_pedido.html?pedido=' + pedido.id
+        : 'passeGeral.html?tipo=' + pedido.codigo + '&pedido=' + pedido.id;
+    document.getElementById("pagar-cartao").href = 'card.html' + consulta;
+    document.getElementById("pagar-mbway").href = 'pagamento_de_mbway.html' + consulta;
 }
+
 
 function prepararPagamento(form) {
     const metodo = form.dataset.metodo;
     const parametros = new URLSearchParams(location.search);
     const idPedido = parametros.get("pedido");
     const origemBar = parametros.get("origem") === "bar";
+    const prefixo = origemBar ? prefixoReciboBar : prefixoCompra;
+    const consulta = (origemBar ? '?origem=bar&pedido=' : '?pedido=') + idPedido;
+    if (lerCompra(idPedido, prefixo)) {
+        location.replace('recibo.html' + consulta);
+        return;
+    }
+
+    const pedido = lerPedido(idPedido, origemBar ? chavePedidoBar : chavePedido);
+    if (pedido === null) {
+        location.replace(origemBar ? "pag_bar.html" : "pag_SuperBock.html");
+        return;
+    }
 
     const voltar = document.getElementById("voltar-pagamento");
-    let pedido;
-    let consulta;
-    if (origemBar) {
-        pedido = { festival: "Copo Meio Cheio", tipo: "Pedido do bar", quantidade: 1, preco: 5 };
-        consulta = "?origem=bar";
-        voltar.href = "choice2.html";
-        ligarAoPedido();
-    } else {
-        if (lerCompra(idPedido)) {
-            location.replace('recibo.html?pedido=' + idPedido);
-            return;
-        }
-
-        pedido = lerPedido(idPedido);
-        if (pedido === null) {
-            location.replace("pag_SuperBock.html");
-            return;
-        }
-
-        consulta = '?pedido=' + pedido.id;
-        voltar.href = 'choice.html' + consulta;
-    }
+    voltar.href = origemBar ? 'choice2.html?pedido=' + pedido.id : 'choice.html' + consulta;
+    if (origemBar) ligarAoPedido(pedido.id);
 
     mostrarResumo(pedido);
     document.getElementById("ver-recibo").href = 'recibo.html' + consulta;
@@ -68,10 +65,8 @@ function prepararPagamento(form) {
         pedido.data = new Date().toISOString();
 
         try {
-            if (origemBar) {
-                sessionStorage.setItem(chaveReciboBar, JSON.stringify(pedido));
-            } else if (lerCompra(pedido.id) === null) {
-                localStorage.setItem(prefixoCompra + pedido.id, JSON.stringify(pedido));
+            if (lerCompra(pedido.id, prefixo) === null) {
+                localStorage.setItem(prefixo + pedido.id, JSON.stringify(pedido));
             }
         } catch {
             confirmar.disabled = false;
@@ -90,14 +85,16 @@ function prepararPagamento(form) {
 
 function mostrarRecibo() {
     const parametros = new URLSearchParams(location.search);
+    const idPedido = parametros.get("pedido");
     const origemBar = parametros.get("origem") === "bar";
     let recibo;
     let paginaSemRecibo;
     if (origemBar) {
-        recibo = JSON.parse(sessionStorage.getItem(chaveReciboBar));
-        paginaSemRecibo = "pag_pedido.html";
+        recibo = idPedido === null ? JSON.parse(sessionStorage.getItem(chaveReciboBar))
+            : lerCompra(idPedido, prefixoReciboBar);
+        paginaSemRecibo = "pag_bar.html";
     } else {
-        recibo = lerCompra(parametros.get("pedido"));
+        recibo = lerCompra(idPedido);
         paginaSemRecibo = "bilhetes.html";
     }
 
@@ -109,7 +106,7 @@ function mostrarRecibo() {
     document.getElementById("metodo-recibo").textContent = recibo.metodo;
     document.getElementById("data-recibo").textContent = new Date(recibo.data).toLocaleDateString("pt-PT");
     mostrarResumo(recibo);
-    if (origemBar) ligarAoPedido();
+    if (origemBar) ligarAoPedido(idPedido);
 }
 
 const formPagamento = document.getElementById('form-pagamento');
@@ -120,3 +117,4 @@ if (formPagamento !== null) {
 } else if (document.getElementById('metodo-recibo') !== null) {
     mostrarRecibo();
 }
+
