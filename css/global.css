@@ -113,3 +113,11 @@ a{
     gap:15px;
     margin-top: 15px;
 }
+
+.btn-menos, .btn-mais{
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 25px;
+    margin: 5px;
+}

@@ -43,7 +43,7 @@ function prepararCompra() {
             tipo: selecao.tipo,
             datas: selecao.datas,
             preco: selecao.preco,
-            quantidade: quantidade.valueAsNumber,
+            quantidade: selecao.quantidade,
             nome: nome.value.trim()
         };
 
@@ -65,3 +65,25 @@ function prepararCompra() {
 }
 
 prepararCompra(); 
+
+
+const MIN = 1;
+const MAX = 10;
+
+const qtdSpan = document.getElementById("quantidade");
+const btnMenos = document.getElementById("btn-menos-b");
+const btnMais = document.getElementById("btn-mais-b");
+
+btnMenos.addEventListener("click", () => {
+  let qtd = parseInt(qtdSpan.textContent);
+  if (qtd > MIN) {
+    qtdSpan.textContent = qtd - 1;
+  }
+});
+
+btnMais.addEventListener("click", () => {
+  let qtd = parseInt(qtdSpan.textContent);
+  if (qtd < MAX) {
+    qtdSpan.textContent = qtd + 1;
+  }
+});
