@@ -27,3 +27,7 @@
 .saude-dados p {
     margin: 0 0 12px;
 }
+.saude .saude-socorro {
+    align-self: center;
+    margin-top: 20px;
+}
