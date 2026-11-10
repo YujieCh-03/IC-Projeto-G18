@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos</title>
+    <link rel="stylesheet" href="../css/amigos.css">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+    <div class="tlm">
+        <a href="amigos.html" class="voltar-btn">voltar</a>
+        <h1>ADICIONAR AMIGOS</h1>
+        <div>
+            <input
+                class="pesquisar"
+                id="pesquisar"
+                type="text"
+                placeholder="nome do amigo"
+            >
+            <button onclick="pesquisarUtilizador()">Pesquizar</button>
+        </div>
+        <p id="erro" class="erro"></p>
+        <h2>utilizadores disponiveis</h2>
+        <div id="listaUtilizadores" class="lista"></div>
+    </div>
+</body>
