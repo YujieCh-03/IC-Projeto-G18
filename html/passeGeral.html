@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/compras.js" defer></script>
     <script src="../js/passeGeral.js" defer></script>
+    <script src="../js/botoesGeral.js" defer></script>
 </head>
 <body>
     <div class="tlm">
@@ -23,7 +24,11 @@
             </section>
             <form id="form_bilhete">
                 <p>Quantidade de Bilhetes:</p>
-                <input type="number" id="quantidade" value="1" min="1" max="10">
+                <div class="quantidade-btns">
+                    <button type="button" id="btn-menos">-</button>
+                    <span id="quantidade-bilhetes">1</span>
+                    <button type="button" id="btn-mais">+</button> 
+                </div>               
                 <p>Nome:</p>
                 <input type="text" id="nome" placeholder="Nome" required minlength="3">
                 <br>

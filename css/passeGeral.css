@@ -68,3 +68,11 @@
     color: #222;
     border: 1px solid #222;
 }
+
+#btn-menos, #btn-mais{
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 25px;
+    margin: 5px;
+}
