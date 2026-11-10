@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/choice.css">
-        <link rel="stylesheet" href="../css/global.css">
-        <title>Método de Pagamento</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/choice.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <title>Método de Pagamento</title>
+    <script src="../js/compras.js" defer></script>
+    <script src="../js/pagamento.js" defer></script>
+</head>
+<body>
+    <div class="tlm">
+        <div class="all">
+            <a href="pag_bar.html" class="voltar-btn" id="voltar-compra" data-origem="bar">voltar</a>
 
-    <body>
-        <div class="tlm">
-            <div class="all">
+            <h1>Método de Pagamento</h1>
+            <div class="resumo"></div>
 
-                <a href="pag_pedido.html" class="voltar-btn">voltar</a>
+            <a href="card.html?origem=bar" class="option" id="pagar-cartao">
+                <span class="icon">Cartão</span>
+                <span>Cartão de Crédito ou Débito</span>
+            </a>
 
-                <h1>Método de Pagamento</h1>
-
-                <a href="card.html" class="option">
-                    <span class="icon">Cartão</span>
-                    <span>Cartão de Crédito ou Débito</span>
-
-                </a>
-
-                <a href="pagamento_de_mbway.html" class="option">
-                    <span class="icon">MB</span>
-                    <span>MB WAY</span>
-
-                </a>
-
-            </div>
+            <a href="pagamento_de_mbway.html?origem=bar" class="option" id="pagar-mbway">
+                <span class="icon">MB</span>
+                <span>MB WAY</span>
+            </a>
         </div>
-    </body>
+    </div>
+</body>
 </html>
