@@ -1,34 +1,12 @@
 const parametros = new URLSearchParams(window.location.search);
 const nomeFestival = parametros.get("festival");
 const dataFestival = parametros.get("datas");
-const [dias, resto] = dataFestival.split(' de ');
 const idFestival = parametros.get("id");
-
-const tituloSpan = document.getElementById("titulo");
-tituloSpan.textContent = nomeFestival;
-
-const dataSpan = document.getElementById("datas");
-dataSpan.textContent = "Datas: " + dataFestival;
-
-const logoSpan = document.getElementById("logo");
-logoSpan.src = "../files/festivais/logo" + idFestival + ".png";
-logoSpan.alt = "Logo do Festival";
-
-const cartazSpan = document.getElementById("imgCartaz");
-cartazSpan.src = "../files/festivais/cartaz" + idFestival + ".png";
-cartazSpan.alt = "Cartaz do Festival";
-
-const params = new URLSearchParams(location.search);
-
-document.querySelectorAll('.bilhetes a').forEach(a => {
-    params.set('tipo', a.dataset.tipo);
-    a.href = 'passeGeral.html?' + params;
-});
-
 const bilhetes = document.getElementById("bilhetes");
 
 function criarBilhete(tipo, datasBilhete, preco){
-    const p = new URLSearchParams(params);
+    const p = new URLSearchParams(parametros);
+    p.set('datasFestival', dataFestival);
     p.set('tipo', tipo);
     p.set('datas', datasBilhete);
     p.set('preco', preco);
@@ -48,10 +26,34 @@ function criarBilhete(tipo, datasBilhete, preco){
     bilhetes.appendChild(div);
 }
 
-if (resto) {
-    const lista = dias.replace(' e ', ', ').split(', ');
-    for (const dia of lista) {
-        criarBilhete('Bilhete Diário', dia + ' de ' + resto, 50);
+function mostrarFestival() {
+    if (!nomeFestival || !dataFestival || !idFestival) {
+        location.replace('pag_comprarBilhetes.html');
+        return;
     }
-    criarBilhete('Passe Geral', dataFestival, 120);
+
+    const tituloSpan = document.getElementById("titulo");
+    tituloSpan.textContent = nomeFestival;
+
+    const dataSpan = document.getElementById("datas");
+    dataSpan.textContent = "Datas: " + dataFestival;
+
+    const logoSpan = document.getElementById("logo");
+    logoSpan.src = "../files/festivais/logo" + idFestival + ".png";
+    logoSpan.alt = "Logo do Festival";
+
+    const cartazSpan = document.getElementById("imgCartaz");
+    cartazSpan.src = "../files/festivais/cartaz" + idFestival + ".png";
+    cartazSpan.alt = "Cartaz do Festival";
+
+    const [dias, resto] = dataFestival.trim().split(' de ');
+    if (resto) {
+        const lista = dias.replace(' e ', ', ').split(', ');
+        for (const dia of lista) {
+            criarBilhete('Bilhete Diário', dia + ' de ' + resto, 50);
+        }
+        criarBilhete('Passe Geral', dataFestival, 120);
+    }
 }
+
+mostrarFestival();
