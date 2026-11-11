@@ -50,21 +50,15 @@ function prepararCompra() {
     const quantidade = document.getElementById("quantidade-bilhetes");
     const nome = document.getElementById("nome");
     const confirmacao = document.getElementById('certeza1');
-    const erro = document.getElementById('erro-compra');
     if (anterior) {
         quantidade.textContent = anterior.quantidade;
         nome.value = anterior.nome;
     }
     confirmacao.style.display = 'none';
 
-    form.addEventListener('invalid', function (event) {
-        erro.textContent = event.target.validationMessage;
-        erro.hidden = false;
-    }, true);
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        erro.hidden = true;
         const pedido = {
             id: String(Math.random()),
             festival: selecao.festival,
@@ -79,12 +73,10 @@ function prepararCompra() {
 
         try {
             sessionStorage.setItem(chavePedido, JSON.stringify(pedido));
-        } catch {
-            erro.textContent = 'Não foi possível guardar a compra. Tente novamente.';
-            erro.hidden = false;
+            } catch {
+            alert('Não foi possível guardar a compra. Tente novamente.');
             return;
-        }
-
+            }
         document.querySelector('.valores-pergunta').textContent =
             pedido.festival + ' · ' + pedido.tipo + ' · ' + pedido.datas
             + ' · Quantidade: ' + pedido.quantidade + ' × ' + formatarEuros(pedido.preco)
