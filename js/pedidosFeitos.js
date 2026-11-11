@@ -34,14 +34,12 @@ function atualizarLista() {
         const div2 = document.createElement("div");
         div2.className="div2";
 
-        if (!levantado) {
-            const qr_code = document.createElement("a");
-            qr_code.className = "btn-qrcode_pedido";
-            qr_code.href = "#qrcode_pedido";
-            qr_code.textContent = "QR Code";
-            div2.appendChild(qr_code);
-            numPedidos++;
-        }
+        const qr_code = document.createElement("a");
+        qr_code.className = "btn-qrcode_pedido";
+        qr_code.href = "#qrcode_pedido";
+        qr_code.textContent = "QR Code";
+        div2.appendChild(qr_code);
+        numPedidos++;
 
         const recibo = document.createElement("a");
         recibo.className = "btn-recibo_pedido";
