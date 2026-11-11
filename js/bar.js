@@ -144,3 +144,19 @@ if (pedido && pedido.hora && link) {
         link.appendChild(bolinha);
     }
 }
+
+const MIN = 0;
+const MAX = 10;
+
+document.addEventListener("click", (event) => {
+    const btn = event.target.closest(".btn-menos, .btn-mais");
+    if (!btn) return;
+    const campo = btn.parentElement.querySelector(".quant_item");
+    let qtd = campo.valueAsNumber || 0;
+
+    if (btn.classList.contains("btn-menos") && qtd > MIN) qtd--;
+    if (btn.classList.contains("btn-mais") && qtd < MAX) qtd++;
+
+    campo.value = qtd;
+    campo.dispatchEvent(new Event("input", { bubbles: true }));
+});

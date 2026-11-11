@@ -23,7 +23,7 @@ function prepararCompra() {
     document.querySelector('.preco').textContent = 'Preço: ' + formatarEuros(selecao.preco);
 
     const form = document.getElementById("form_bilhete");
-    const quantidade = document.getElementById("quantidade");
+    const quantidade = document.getElementById("quantidade-bilhetes");
     const nome = document.getElementById("nome");
     const confirmacao = document.getElementById('certeza1');
     quantidade.required = true;
@@ -70,7 +70,7 @@ prepararCompra();
 const MIN = 1;
 const MAX = 10;
 
-const qtdSpan = document.getElementById("quantidade");
+const qtdSpan = document.getElementById("quantidade-bilhetes");
 const btnMenos = document.getElementById("btn-menos-b");
 const btnMais = document.getElementById("btn-mais-b");
 

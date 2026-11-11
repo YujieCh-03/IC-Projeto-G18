@@ -21,74 +21,110 @@
                         <p class="nome_item">Copo 50cl</p>
                         <p class="preco_item">0.50€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos1" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais1" class="btn-mais">+</button> 
+                    </div>                
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Super Bock, 25cl</p>
                         <p class="preco_item">1.00€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos2" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais2" class="btn-mais">+</button> 
+                    </div>
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Super Bock, 50cl</p>
                         <p class="preco_item">1.75€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos3" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais3" class="btn-mais">+</button> 
+                    </div>
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Somersby, 25cl</p>
                         <p class="preco_item">1.20€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos4" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais4" class="btn-mais">+</button> 
+                    </div>
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Água, 50cl</p>
                         <p class="preco_item">1.00€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos5" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais5" class="btn-mais">+</button> 
+                    </div>
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Sandes de Ovo</p>
                         <p class="preco_item">3.00€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos6" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais6" class="btn-mais">+</button> 
+                    </div>
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Bifana</p>
                         <p class="preco_item">3.00€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos7" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais7" class="btn-mais">+</button> 
+                    </div>
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Seitana (veg)</p>
                         <p class="preco_item">3.00€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos8" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais8" class="btn-mais">+</button> 
+                    </div>
                 </div>
                 <div class="item">
                     <div class="txt_item">
                         <p class="nome_item">Sopa</p>
                         <p class="preco_item">2.00€</p>
                     </div>
-                    <input type="number" class="quant_item" value="0" min="0" max="10">
+                    <div class="quantidade-btns">
+                        <button type="button" id="btn-menos9" class="btn-menos">-</button>
+                        <input type="number" class="quant_item" value="0" min="0" max="10">
+                        <button type="button" id="btn-mais9" class="btn-mais">+</button> 
+                    </div>
                 </div>
             </div>
             <div class="total">
-                <p><strong>Total:</strong> 5€</p>
+                <p><strong>Total:</strong> 0€</p>
             </div>
             <div class="horas">
                 <h4>Hora de pedido:</h4>
                 <div class="caixa_horas">
-                    <input type="time" class="hora_input">
+                    <input type="time" class="hora_input"  id="horas_pedido">
                     <a href="#pedido" class="ajuda_hora">Ajuda</a>
-                    <a href="#fazer_pedido" class="fazer_pedido">Pedir</a>
+                    <a href="#fazer_pedido" class="fazer_pedido"  id="pedir_bar">Pedir</a>
                 </div>
 
                 <div id="fazer_pedido" class="pop">
