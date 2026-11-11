@@ -1,3 +1,11 @@
+const nome_bar = document.querySelector(".nome_bar");
+const bar = new URLSearchParams(location.search).get('bar');
+if( bar){
+    sessionStorage.setItem('barAtual', bar);
+    nome_bar.textContent = String(sessionStorage.getItem("barAtual"));
+}
+
+
 function prepararPedidoBar(menu) {
     const total = document.querySelector('.total p').lastChild;
     const hora = document.querySelector('.hora_input');
