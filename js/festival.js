@@ -16,3 +16,10 @@ logoSpan.alt = "Logo do Festival";
 const cartazSpan = document.getElementById("imgCartaz");
 cartazSpan.src = "../files/festivais/cartaz" + idFestival + ".png";
 cartazSpan.alt = "Cartaz do Festival";
+
+const params = new URLSearchParams(location.search);
+
+document.querySelectorAll('.bilhetes a').forEach(a => {
+    params.set('tipo', a.dataset.tipo);
+    a.href = 'passeGeral.html?' + params;
+});

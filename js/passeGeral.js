@@ -1,3 +1,16 @@
+const parametros = new URLSearchParams(window.location.search);
+const nomeFestival = parametros.get("festival");
+const dataFestival = parametros.get("datas");
+const idFestival = parametros.get("id");
+
+const tituloSpan = document.getElementById("titulo");
+const datasSpan = document.getElementById("datas");
+const precoSpan = document.getElementById("preco");
+const logoSpan = document.getElementById("logo");
+tituloSpan.textContent = nomeFestival;
+datasSpan.textContent = "Datas:" + dataFestival;
+logoSpan.src="../files/festivais/logo"+ idFestival +".png";
+
 const festival = "Super Bock Super Rock";
 const tiposBilhete = {
     "passe-geral": { tipo: "Passe Geral", datas: "12, 13 e 16 de Agosto de 2027", preco: 120 },
