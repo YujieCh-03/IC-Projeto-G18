@@ -1,6 +1,7 @@
 const parametros = new URLSearchParams(window.location.search);
 const nomeFestival = parametros.get("festival");
 const dataFestival = parametros.get("datas");
+const [dias, resto] = dataFestival.split(' de ');
 const idFestival = parametros.get("id");
 
 const tituloSpan = document.getElementById("titulo");
@@ -23,3 +24,34 @@ document.querySelectorAll('.bilhetes a').forEach(a => {
     params.set('tipo', a.dataset.tipo);
     a.href = 'passeGeral.html?' + params;
 });
+
+const bilhetes = document.getElementById("bilhetes");
+
+function criarBilhete(tipo, datasBilhete, preco){
+    const p = new URLSearchParams(params);
+    p.set('tipo', tipo);
+    p.set('datas', datasBilhete);
+    p.set('preco', preco);
+
+    const div = document.createElement('div');
+    div.className = 'bilheteCPreço';
+    const a = document.createElement('a');
+    a.href = 'passeGeral.html?' + p;
+    const texto = document.createElement('p');
+    texto.textContent = tipo + ' - ' + datasBilhete;
+    const precoP = document.createElement('p');
+    precoP.className = 'preço';
+    precoP.textContent =  preco + '€';
+
+    a.append(texto, precoP);
+    div.appendChild(a);
+    bilhetes.appendChild(div);
+}
+
+if (resto) {
+    const lista = dias.replace(' e ', ', ').split(', ');
+    for (const dia of lista) {
+        criarBilhete('Bilhete Diário', dia + ' de ' + resto, 50);
+    }
+    criarBilhete('Passe Geral', dataFestival, 120);
+}

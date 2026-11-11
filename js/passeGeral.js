@@ -8,28 +8,11 @@ const datasSpan = document.getElementById("datas");
 const precoSpan = document.getElementById("preco");
 const logoSpan = document.getElementById("logo");
 tituloSpan.textContent = nomeFestival;
-datasSpan.textContent = "Datas:" + dataFestival;
+datasSpan.textContent = "Datas: " + dataFestival;
 logoSpan.src="../files/festivais/logo"+ idFestival +".png";
-
-const festival = "Super Bock Super Rock";
-const tiposBilhete = {
-    "passe-geral": { tipo: "Passe Geral", datas: "12, 13 e 16 de Agosto de 2027", preco: 120 },
-    "diario-12": { tipo: "Bilhete Diário", datas: "12 de Agosto de 2027", preco: 50 },
-    "diario-13": { tipo: "Bilhete Diário", datas: "13 de Agosto de 2027", preco: 50 },
-    "diario-16": { tipo: "Bilhete Diário", datas: "16 de Agosto de 2027", preco: 50 }
-};
 
 function prepararCompra() {
     const parametros = new URLSearchParams(location.search);
-    let codigo = parametros.get("tipo");
-    if (codigo === null) {
-        codigo = "passe-geral";
-    }
-    const selecao = tiposBilhete[codigo];
-    if (!selecao || !selecao.tipo) {
-        location.replace("pag_SuperBock.html");
-        return;
-    }
 
     document.querySelector('.titulo').textContent = selecao.tipo + ' - ' + festival;
     document.querySelector('.datas').textContent = 'Datas: ' + selecao.datas;
