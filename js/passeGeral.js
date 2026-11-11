@@ -46,7 +46,7 @@ function prepararCompra() {
             tipo: selecao.tipo,
             datas: selecao.datas,
             preco: selecao.preco,
-            quantidade: Number(selecao.quantidade.textContent),
+            quantidade: Number(qnuuantidade.textContent),
             nome: nome.value.trim()
         };
 
