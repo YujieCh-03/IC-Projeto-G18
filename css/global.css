@@ -98,10 +98,12 @@ a{
 .primario{
     background-color: #222;
     color:white;
+    margin: 5px;
 }
 
 .secundario{
     color: #222;
+    margin: 5px;
     border: 1px solid #222;
 }
 

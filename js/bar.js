@@ -131,3 +131,16 @@ if (menuBar) {
 } else {
     mostrarPedidoBar();
 }
+
+const pedido = JSON.parse(sessionStorage.getItem(chavePedidoBar) || 'null');
+const link = document.getElementById("linkPedidos");
+if (pedido && pedido.hora && link) {
+    const [h, m] = pedido.hora.split(':').map(Number);
+    const agora = new Date();
+    if (h * 60 + m > agora.getHours() * 60 + agora.getMinutes()) {
+        const bolinha = document.createElement("span");
+        bolinha.className = "dot";
+        bolinha.textContent = "1";
+        link.appendChild(bolinha);
+    }
+}
