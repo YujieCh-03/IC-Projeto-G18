@@ -66,6 +66,7 @@ form {
     font-style: italic;
 }
 .img_rest{
-    width: 50px;
+    width: 100px;
     height: auto;
+    border-radius: 10px;
 }
