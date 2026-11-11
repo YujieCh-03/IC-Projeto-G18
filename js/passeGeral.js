@@ -8,13 +8,21 @@ const datasSpan = document.getElementById("datas");
 const precoSpan = document.getElementById("preco");
 const logoSpan = document.getElementById("logo");
 tituloSpan.textContent = nomeFestival;
-datasSpan.textContent = "Datas: " + dataFestival;
+datasSpan.textContent = "Datas:" + dataFestival;
 logoSpan.src="../files/festivais/logo"+ idFestival +".png";
 
 function prepararCompra() {
     const parametros = new URLSearchParams(location.search);
-
-    document.querySelector('.titulo').textContent = selecao.tipo + ' - ' + festival;
+    const selecao = {
+        tipo: parametros.get("tipo"),
+        datas: parametros.get("datas"),
+        preco: Number(parametros.get("preco"))
+    };
+    if (!selecao.tipo) {
+        location.replace("pag_SuperBock.html");
+        return;
+    }
+    document.querySelector('.titulo').textContent = selecao.tipo + ' - ' + nomeFestival;
     document.querySelector('.datas').textContent = 'Datas: ' + selecao.datas;
     document.querySelector('.preco').textContent = 'Preço: ' + formatarEuros(selecao.preco);
 
@@ -34,12 +42,11 @@ function prepararCompra() {
         event.preventDefault();
         const pedido = {
             id: String(Math.random()),
-            codigo: codigo,
-            festival: festival,
+            festival: nomeFestival,
             tipo: selecao.tipo,
             datas: selecao.datas,
             preco: selecao.preco,
-            quantidade: selecao.quantidade,
+            quantidade: Number(selecao.quantidade.textContent),
             nome: nome.value.trim()
         };
 
@@ -52,7 +59,7 @@ function prepararCompra() {
 
         document.querySelector('.valores-pergunta').textContent =
             pedido.festival + ' · ' + pedido.tipo + ' · ' + pedido.datas
-            + ' · Quantidade: ' + pedido.quantidade + ' × ' + formatarEuros(pedido.preco)
+            + ' · Quantidade: ' + Number(pedido.quantidade) + ' × ' + formatarEuros(pedido.preco)
             + ' · Total: ' + formatarEuros(pedido.quantidade * pedido.preco);
         document.querySelector('.btn-confirmacao .primario').href = 'choice.html?pedido=' + pedido.id;
         confirmacao.style.display = '';
