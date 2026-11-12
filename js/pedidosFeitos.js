@@ -2,8 +2,7 @@ const lista = document.getElementById("pag_pedidos");
 const vazio = document.getElementById("sem-pedidos");
 
 function atualizarLista() {
-    const guardado = JSON.parse(sessionStorage.getItem(chavePedidoBar) || 'null');
-    const pedidos = guardado ? [guardado] : [];
+    const pedidos = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
     let numPedidos = 0;
 
     lista.textContent = '';
@@ -16,6 +15,13 @@ function atualizarLista() {
             const agora = new Date();
             tempo_espera = Math.max(0, h * 60 + m - (agora.getHours() * 60 + agora.getMinutes()));
         }
+        pedido.tempo_espera = tempo_espera; // Guarda a propriedade temporária no objeto
+    }
+
+    pedidos.sort((a, b) => a.tempo_espera - b.tempo_espera);
+
+    for (const pedido of pedidos) {
+        let tempo_espera = pedido.tempo_espera;
         const levantado = tempo_espera === 0;
 
         const novoPedido = document.createElement("div");
@@ -97,7 +103,7 @@ function atualizarLista() {
         lista.appendChild(novoPedido);
         lista.appendChild(reciboPedido);
     }
-
+    
     sessionStorage.setItem("numPedidos", numPedidos);
 }
 

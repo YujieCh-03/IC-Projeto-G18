@@ -10,7 +10,10 @@ function escolherPagamento() {
     }
 
     const pedido = lerPedido(idPedido, origemBar ? chavePedidoBar : chavePedido);
-
+    if (!pedido) {
+        location.replace(origemBar ? "pag_bar.html" : "pag_comprarBilhetes.html");
+        return;
+    }
 
     mostrarResumo(pedido);
     voltar.href = origemBar ? 'pag_pedido.html?pedido=' + pedido.id

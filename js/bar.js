@@ -67,13 +67,18 @@ function prepararPedidoBar(menu) {
         const pedido = lerPedidoValido();
         if (pedido === null) return;
 
-        pedido.id = String(Math.random());
+        pedido.id = idPedido || String(Math.random());
         pedido.festival = document.querySelector('h1').textContent;
         pedido.tipo = 'Pedido do bar';
         pedido.hora = hora.value;
 
         try {
             sessionStorage.setItem(chavePedidoBar, JSON.stringify(pedido));
+            const lista = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
+            const i = lista.findIndex(p => p.id === pedido.id);
+            if (i === -1) lista.push(pedido); else lista[i] = pedido;
+            sessionStorage.setItem("listaPedidos", JSON.stringify(lista));
+            sessionStorage.setItem("numPedidos", lista.length);
         } catch {
             alert('Não foi possível guardar o pedido. Tente novamente.');
             return;
@@ -119,7 +124,7 @@ function mostrarPedidoBar() {
         pagar.textContent = 'Ver recibo';
         document.getElementById('pagamento').style.display = 'none';
     } else {
-        voltar.href = 'pag_bar.html?origem=bilhete&pedido=' + pedido.id;
+        voltar.href = 'pag_bar.html?pedido=' + pedido.id;
         document.getElementById('continuar-pedido').href = 'choice2.html?pedido=' + pedido.id;
     }
 }
@@ -131,18 +136,6 @@ if (menuBar) {
     mostrarPedidoBar();
 }
 
-const pedido = JSON.parse(sessionStorage.getItem(chavePedidoBar) || 'null');
-const link = document.getElementById("linkPedidos");
-if (pedido && pedido.hora && link) {
-    const [h, m] = pedido.hora.split(':').map(Number);
-    const agora = new Date();
-    if (h * 60 + m > agora.getHours() * 60 + agora.getMinutes()) {
-        const bolinha = document.createElement("span");
-        bolinha.className = "dot";
-        bolinha.textContent = "1";
-        link.appendChild(bolinha);
-    }
-}
 
 const MIN = 0;
 const MAX = 10;
