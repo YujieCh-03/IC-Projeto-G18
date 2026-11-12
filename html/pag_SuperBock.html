@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="../css/global.css">
         <link rel="stylesheet" href="../css/superBock.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Super Bock Super Rock</title>
+        <title>Festival</title>
+        <script src="../js/festival.js" defer></script>
     </head>
     
     <body>
@@ -14,10 +15,10 @@
                 <a href="./pag_comprarBilhetes.html" class="voltar-btn">voltar</a>
                 
                 <section class="intro">
-                    <img src="../files/superbock.png">
+                    <img id="logo">
                     <div class="intro_txt">
-                        <p class="titulo">Super Bock Super Rock</p>
-                        <p class="datas">Datas: 12, 13 e 16 de Agosto de 2027</p>
+                        <p class="titulo" id="titulo"></p>
+                        <p class="datas" id="datas"></p>
                     </div>
                 </section>
                 <section class="social">
@@ -37,29 +38,9 @@
                     <section class="gosto-btn">
                         <button>Gosto</button>
                     </section>
-                    <img src="../files/cartaz.png" class="imgCartaz">
+                    <img class="imgCartaz" id="imgCartaz">
                 </section>
-                <section class="bilhetes">
-                    <div class="bilheteCPreço">
-                        <a href="naoDesenvolvido.html">Bilhete Diário: 12 Agosto
-                            <p class="preço"> 50€</p>
-                        </a>
-                    </div>
-                    <div class="bilheteCPreço">
-                        <a href="naoDesenvolvido.html">Bilhete Diário: 13 Agosto
-                            <p class="preço"> 50€</p>
-                        </a>
-                    </div>
-                    <div class="bilheteCPreço">
-                        <a href="naoDesenvolvido.html">Bilhete Diário: 16 Agosto
-                            <p class="preço"> 50€</p>
-                        </a>
-                    </div>
-                    <div class="bilheteCPreço">
-                        <a href="passeGeral.html">Passe Geral: 12, 13 e 16 Agosto
-                            <p class="preço"> 120€</p>
-                        </a>
-                    </div>
+                <section class="bilhetes" id="bilhetes">
                 </section>
             </main>
         </div>

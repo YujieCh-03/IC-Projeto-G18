@@ -3,7 +3,7 @@ function escolherPagamento() {
     const origemBar = voltar.dataset.origem === "bar";
     const idPedido = new URLSearchParams(location.search).get("pedido");
     const prefixo = origemBar ? prefixoReciboBar : prefixoCompra;
-    const consulta = (origemBar ? '?origem=bar&pedido=' : '?pedido=') + idPedido;
+    const consulta = (origemBar ? '?origem=bar&pedido=' : '?origem=bilhetes&pedido=') + idPedido;
     if (lerCompra(idPedido, prefixo)) {
         location.replace('recibo.html' + consulta);
         return;
@@ -11,13 +11,13 @@ function escolherPagamento() {
 
     const pedido = lerPedido(idPedido, origemBar ? chavePedidoBar : chavePedido);
     if (!pedido) {
-        location.replace(origemBar ? "pag_bar.html" : "pag_SuperBock.html");
+        location.replace(origemBar ? "pag_bar.html" : "pag_comprarBilhetes.html");
         return;
     }
 
     mostrarResumo(pedido);
     voltar.href = origemBar ? 'pag_pedido.html?pedido=' + pedido.id
-        : 'passeGeral.html?tipo=' + pedido.codigo + '&pedido=' + pedido.id;
+        : 'passeGeral.html?pedido=' + pedido.id;
     document.getElementById("pagar-cartao").href = 'card.html' + consulta;
     document.getElementById("pagar-mbway").href = 'pagamento_de_mbway.html' + consulta;
 }
@@ -37,7 +37,7 @@ function prepararPagamento(form) {
 
     const pedido = lerPedido(idPedido, origemBar ? chavePedidoBar : chavePedido);
     if (pedido === null) {
-        location.replace(origemBar ? "pag_bar.html" : "pag_SuperBock.html");
+        location.replace(origemBar ? "pag_bar.html" : "pag_comprarBilhetes.html");
         return;
     }
 
@@ -106,6 +106,8 @@ function mostrarRecibo() {
     document.getElementById("metodo-recibo").textContent = recibo.metodo;
     document.getElementById("data-recibo").textContent = new Date(recibo.data).toLocaleDateString("pt-PT");
     mostrarResumo(recibo);
+    const texto = document.getElementById('bill').innerText;
+    document.getElementById('guardar-recibo').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(texto);
     if (origemBar) ligarAoPedido(idPedido);
 }
 
@@ -117,4 +119,5 @@ if (formPagamento !== null) {
 } else if (document.getElementById('metodo-recibo') !== null) {
     mostrarRecibo();
 }
+
 

@@ -98,10 +98,12 @@ a{
 .primario{
     background-color: #222;
     color:white;
+    margin: 5px;
 }
 
 .secundario{
     color: #222;
+    margin: 5px;
     border: 1px solid #222;
 }
 
@@ -112,4 +114,26 @@ a{
     align-items: center;
     gap:15px;
     margin-top: 15px;
+}
+
+.btn-menos, .btn-mais{
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    width: 40px;
+    height: 35px;
+    margin: 5px;
+}
+
+.notif{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    display: inline-block;
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(255, 80, 80);
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
 }

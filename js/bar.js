@@ -1,3 +1,10 @@
+const nome_bar = document.querySelector(".nome_bar");
+const bar = new URLSearchParams(location.search).get('bar');
+if( bar){
+    sessionStorage.setItem('barAtual', bar);
+    nome_bar.textContent = String(sessionStorage.getItem("barAtual"));
+}
+
 function prepararPedidoBar(menu) {
     const total = document.querySelector('.total p').lastChild;
     const hora = document.querySelector('.hora_input');
@@ -60,13 +67,18 @@ function prepararPedidoBar(menu) {
         const pedido = lerPedidoValido();
         if (pedido === null) return;
 
-        pedido.id = String(Math.random());
+        pedido.id = idPedido || String(Math.random());
         pedido.festival = document.querySelector('h1').textContent;
         pedido.tipo = 'Pedido do bar';
         pedido.hora = hora.value;
 
         try {
             sessionStorage.setItem(chavePedidoBar, JSON.stringify(pedido));
+            const lista = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
+            const i = lista.findIndex(p => p.id === pedido.id);
+            if (i === -1) lista.push(pedido); else lista[i] = pedido;
+            sessionStorage.setItem("listaPedidos", JSON.stringify(lista));
+            sessionStorage.setItem("numPedidos", lista.length);
         } catch {
             alert('Não foi possível guardar o pedido. Tente novamente.');
             return;
@@ -123,3 +135,20 @@ if (menuBar) {
 } else {
     mostrarPedidoBar();
 }
+
+
+const MIN = 0;
+const MAX = 10;
+
+document.addEventListener("click", (event) => {
+    const btn = event.target.closest(".btn-menos, .btn-mais");
+    if (!btn) return;
+    const campo = btn.parentElement.querySelector(".quant_item");
+    let qtd = campo.valueAsNumber || 0;
+
+    if (btn.classList.contains("btn-menos") && qtd > MIN) qtd--;
+    if (btn.classList.contains("btn-mais") && qtd < MAX) qtd++;
+
+    campo.value = qtd;
+    campo.dispatchEvent(new Event("input", { bubbles: true }));
+});

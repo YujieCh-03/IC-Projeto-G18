@@ -40,7 +40,6 @@ function mostrarBilhete() {
 
     const compra = carteira.compras[bilhete.compra];
     document.getElementById("festival-bilhete").textContent = compra.festival;
-    document.getElementById("numero-bilhete").textContent = numeroBilhete(bilhete);
     document.getElementById("tipo-bilhete").textContent = compra.tipo;
     document.getElementById("datas-bilhete").textContent = compra.datas;
     document.getElementById("nome-bilhete").textContent = compra.nome;
