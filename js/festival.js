@@ -38,12 +38,15 @@ function mostrarFestival() {
     const dataSpan = document.getElementById("datas");
     dataSpan.textContent = "Datas: " + dataFestival;
 
+    const criados = JSON.parse(localStorage.getItem("festivaisCriados") || "[]");
+    const criado = criados.find(f => String(f.id) === idFestival);
+    
     const logoSpan = document.getElementById("logo");
-    logoSpan.src = "../files/festivais/logo" + idFestival + ".png";
+    logoSpan.src = criado ? criado.logo : "../files/festivais/logo" + idFestival + ".png";
     logoSpan.alt = "Logo do Festival";
 
     const cartazSpan = document.getElementById("imgCartaz");
-    cartazSpan.src = "../files/festivais/cartaz" + idFestival + ".png";
+    cartazSpan.src = criado ? criado.cartaz : "../files/festivais/cartaz" + idFestival + ".png";
     cartazSpan.alt = "Cartaz do Festival";
 
     const [dias, resto] = dataFestival.trim().split(' de ');
@@ -55,5 +58,4 @@ function mostrarFestival() {
         criarBilhete('Passe Geral', dataFestival, 120);
     }
 }
-
 mostrarFestival();
