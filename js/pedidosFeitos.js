@@ -60,10 +60,10 @@ function atualizarLista() {
             apagar.textContent = "Apagar";
             apagar.addEventListener("click", (e) => {
                 e.preventDefault();
-                novoPedido.remove();
-                reciboPedido.remove();
-                sessionStorage.removeItem(chavePedidoBar);
-                vazio.hidden = lista.children.length > 0;
+                let pedidos = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
+                pedidos = pedidos.filter(p => p.id !== pedido.id);
+                sessionStorage.setItem("listaPedidos", JSON.stringify(pedidos));
+                atualizarLista();
             });
             div2.appendChild(apagar);
         }
