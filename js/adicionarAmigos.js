@@ -7,17 +7,16 @@ const utilizadores=[
     "lucas"
 ];
 
+
 let amigos = JSON.parse(
     localStorage.getItem("amigos") || "[]"
 );
 
 function pesquisarUtilizador() {
-    const pesquisa = document
-        .getElementById("pesquisar")
-        .value.trim()
-        .toLowerCase();
-
+    const input = document.getElementById("pesquisar");
     const erro = document.getElementById("erro");
+
+    const pesquisa = input.value.trim().toLowerCase();
 
     if (pesquisa === "") {
         erro.textContent = "Digite o nome do utilizador!";
@@ -38,17 +37,14 @@ function pesquisarUtilizador() {
     mostrarUtilizadores();
 }
 
+
 function mostrarUtilizadores() {
-    const pesquisa = document
-        .getElementById("pesquisar")
-        .value.trim()
-        .toLowerCase();
+    const input = document.getElementById("pesquisar");
+    const lista = document.getElementById("listaUtilizadores");
 
-    const lista = document.getElementById(
-        "listaUtilizadores"
-    );
+    const pesquisa = input.value.trim().toLowerCase();
 
-    lista.innerHTML = "";
+    lista.replaceChildren();
 
     const resultados = utilizadores.filter(nome =>
         nome.toLowerCase().includes(pesquisa)
@@ -68,18 +64,15 @@ function mostrarUtilizadores() {
             botao.disabled = true;
         } else {
             botao.textContent = "Adicionar";
-
-            botao.onclick = function() {
-                adicionarAmigo(nome);
-            };
+            botao.onclick = () => adicionarAmigo(nome);
         }
 
         div.appendChild(texto);
         div.appendChild(botao);
-
         lista.appendChild(div);
     });
 }
+
 
 function adicionarAmigo(nome) {
     if (!amigos.includes(nome)) {
@@ -94,4 +87,8 @@ function adicionarAmigo(nome) {
     mostrarUtilizadores();
 }
 
-mostrarUtilizadores();
+
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarUtilizadores();
+});
+

@@ -1,21 +1,28 @@
-let amigos = JSON.parse(
-    localStorage.getItem("amigos") || "[]"
-);
-function mostrarAmigos() {
-    const lista = document.getElementById("meusAmigos");
 
-    const pesquisa = document
-        .getElementById("pesquisa")
-        .value.trim()
-        .toLowerCase();
+function mostrarAmigos() {
+    const amigos = JSON.parse(
+        localStorage.getItem("amigos") || "[]"
+    );
+
+    const lista = document.getElementById("meusAmigos");
+    const input = document.getElementById("pesquisa");
+
+    if (!lista || !input) {
+        console.error("Não foi possível encontrar os elementos HTML.");
+        return;
+    }
+
+    const pesquisa = input.value.trim().toLowerCase();
 
     lista.replaceChildren();
+
 
     const resultados = amigos.filter(nome =>
         nome.toLowerCase().includes(pesquisa)
     );
 
     resultados.forEach(nome => {
+
         const div = document.createElement("div");
         div.className = "amigo";
 
@@ -25,16 +32,29 @@ function mostrarAmigos() {
         const botao = document.createElement("button");
         botao.textContent = "Remover";
 
-        botao.addEventListener("click", function() {
+        botao.onclick = function() {
             removerAmigo(nome);
-        });
+        };
 
         div.appendChild(texto);
         div.appendChild(botao);
+
         lista.appendChild(div);
     });
+
+    if (resultados.length === 0) {
+        const mensagem = document.createElement("p");
+        mensagem.textContent = "Nenhum amigo encontrado.";
+        lista.appendChild(mensagem);
+    }
 }
+
 function removerAmigo(nome) {
+
+    let amigos = JSON.parse(
+        localStorage.getItem("amigos") || "[]"
+    );
+
     amigos = amigos.filter(amigo => amigo !== nome);
 
     localStorage.setItem(
@@ -44,11 +64,22 @@ function removerAmigo(nome) {
 
     mostrarAmigos();
 }
-document.getElementById("pesquisa")
-    .addEventListener("input", mostrarAmigos);
 
-document.querySelector("form")
-    .addEventListener("submit", function(event) {
-        event.preventDefault();
-    });
-mostrarAmigos();
+document.addEventListener("DOMContentLoaded", function() {
+
+    const pesquisa = document.getElementById("pesquisa");
+
+    if (pesquisa) {
+        pesquisa.addEventListener("input", mostrarAmigos);
+    }
+
+    const formulario = document.querySelector("form");
+
+    if (formulario) {
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+        });
+    }
+
+    mostrarAmigos();
+});
