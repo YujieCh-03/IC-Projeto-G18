@@ -124,3 +124,16 @@ a{
     height: 35px;
     margin: 5px;
 }
+
+.notif{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    display: inline-block;
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(255, 80, 80);
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+}

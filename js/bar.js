@@ -5,7 +5,6 @@ if( bar){
     nome_bar.textContent = String(sessionStorage.getItem("barAtual"));
 }
 
-
 function prepararPedidoBar(menu) {
     const total = document.querySelector('.total p').lastChild;
     const hora = document.querySelector('.hora_input');
@@ -120,7 +119,7 @@ function mostrarPedidoBar() {
         pagar.textContent = 'Ver recibo';
         document.getElementById('pagamento').style.display = 'none';
     } else {
-        voltar.href = 'pag_bar.html?pedido=' + pedido.id;
+        voltar.href = 'pag_bar.html?origem=bilhete&pedido=' + pedido.id;
         document.getElementById('continuar-pedido').href = 'choice2.html?pedido=' + pedido.id;
     }
 }

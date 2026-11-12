@@ -3,17 +3,14 @@ function escolherPagamento() {
     const origemBar = voltar.dataset.origem === "bar";
     const idPedido = new URLSearchParams(location.search).get("pedido");
     const prefixo = origemBar ? prefixoReciboBar : prefixoCompra;
-    const consulta = (origemBar ? '?origem=bar&pedido=' : '?pedido=') + idPedido;
+    const consulta = (origemBar ? '?origem=bar&pedido=' : '?origem=bilhetes&pedido=') + idPedido;
     if (lerCompra(idPedido, prefixo)) {
         location.replace('recibo.html' + consulta);
         return;
     }
 
     const pedido = lerPedido(idPedido, origemBar ? chavePedidoBar : chavePedido);
-    if (!pedido) {
-        location.replace(origemBar ? "pag_bar.html" : "pag_comprarBilhetes.html");
-        return;
-    }
+
 
     mostrarResumo(pedido);
     voltar.href = origemBar ? 'pag_pedido.html?pedido=' + pedido.id
