@@ -53,6 +53,12 @@ function atualizarLista() {
         recibo.href = '#recibo_pedido' + pedido.id;
         div2.appendChild(recibo);
 
+        const repetir = document.createElement("a");
+        repetir.className = "btn-repetir_pedido";
+        repetir.textContent = "Repetir";
+        recibo.href = "#repetir_pedido";
+        div2.appendChild(repetir);
+
         if (levantado) {
             const apagar = document.createElement("a");
             apagar.className = "btn-apagar_pedido";
