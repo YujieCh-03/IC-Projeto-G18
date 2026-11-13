@@ -23,7 +23,10 @@ function prepararPedidoBar(menu) {
         const escolhido = anterior && anterior.itens.find(item => item.nome === nome);
         if (escolhido) campo.value = escolhido.quantidade;
     }
-    if (anterior) hora.value = anterior.hora;
+    if (anterior) {
+    nome_bar.textContent = anterior.festival;
+    hora.value = anterior.hora;
+}
 
     function lerMenu() {
         const itens = [];
