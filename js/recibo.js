@@ -7,3 +7,5 @@ if(origem === "bar"){
 else{
     recibo.href = 'bilhetes.html';
 }
+
+document.querySelector('#save .primario') .href='festivalhome.html';
