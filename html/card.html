@@ -24,19 +24,19 @@
             </div>
 
             <form class="form" id="form-pagamento" data-metodo="Cartão bancário">
-                <label for="name">Nome no cartão</label>
+                <label for="name">Nome no cartão:</label>
                 <input id="name" type="text" placeholder="Nome completo" maxlength="70" required>
 
-                <label for="number">Número do cartão</label>
+                <label for="number">Número do cartão:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
                 <input id="number" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" required>
 
                 <div class="row">
                     <div>
-                        <label for="expiry">Validade</label>
+                        <label for="expiry">Validade:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
                         <input id="expiry" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5"  required>
                     </div>
                     <div>
-                        <label for="cvv">CVV</label>
+                        <label for="cvv">CVV:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
                         <input id="cvv" type="password" inputmode="numeric" placeholder="123" maxlength="3"  required>
                     </div>
                 </div>

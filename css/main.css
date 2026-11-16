@@ -2,3 +2,17 @@
     width: 30%;
     height: auto;
 }
+
+.ajuda{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: baseline;
+    margin-top: 90px;
+    margin-right: 10px;
+}
+.ajuda-btn{
+    border-radius: 10px;
+    border: 1px solid rgb(37, 81, 224);
+    padding: 10px;
+}

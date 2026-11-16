@@ -149,3 +149,9 @@ a{
 .barrinha{
     margin: 5px;
 }
+
+.obrigatorio {
+    color: red;
+    cursor:pointer;
+    font-weight: bold;
+}
