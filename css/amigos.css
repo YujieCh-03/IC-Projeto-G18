@@ -11,3 +11,57 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+
+.amigo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+.amigo span {
+    flex: 1;
+    text-align: center;
+}
+
+.amigo button {
+    background: white;
+    color: purple;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.amigo button:hover {
+    background: #eeeeee;
+}
+
+.detalhes {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+#localizar {
+    width: 75%;
+    height: 80px;
+    background: white;
+    color: purple;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#localizar:hover {
+    background: #eeeeee;
+}
+
+#localizar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -1,5 +1,6 @@
 
 function mostrarAmigos() {
+
     const amigos = JSON.parse(
         localStorage.getItem("amigos") || "[]"
     );
@@ -8,14 +9,13 @@ function mostrarAmigos() {
     const input = document.getElementById("pesquisa");
 
     if (!lista || !input) {
-        console.error("Não foi possível encontrar os elementos HTML.");
+        console.error("Elementos HTML não encontrados.");
         return;
     }
 
     const pesquisa = input.value.trim().toLowerCase();
 
     lista.replaceChildren();
-
 
     const resultados = amigos.filter(nome =>
         nome.toLowerCase().includes(pesquisa)
@@ -26,8 +26,19 @@ function mostrarAmigos() {
         const div = document.createElement("div");
         div.className = "amigo";
 
+        const detalhes = document.createElement("button");
+        detalhes.textContent = "Ver detalhes";
+
+        detalhes.onclick = function() {
+            window.location.href =
+                "detalhe_amigo.html?nome=" +
+                encodeURIComponent(nome);
+        };
+
+
         const texto = document.createElement("span");
         texto.textContent = nome;
+
 
         const botao = document.createElement("button");
         botao.textContent = "Remover";
@@ -36,6 +47,8 @@ function mostrarAmigos() {
             removerAmigo(nome);
         };
 
+        
+        div.appendChild(detalhes);
         div.appendChild(texto);
         div.appendChild(botao);
 
