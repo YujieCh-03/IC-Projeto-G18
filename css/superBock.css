@@ -58,8 +58,10 @@
     padding: 10px;
 }
 
-.gosto-btn{
-    border: 1px solid #222;
+.gosto-btn button{
+    border: 1px solid #e72eff;
+    background-color: #ff5cce60;
     border-radius: 10px;
     padding: 10px;
+    width: 80%;
 }
