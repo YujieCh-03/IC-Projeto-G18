@@ -56,7 +56,7 @@ function atualizarLista() {
         const repetir = document.createElement("a");
         repetir.className = "btn-repetir_pedido";
         repetir.textContent = "Repetir";
-        recibo.href = "#repetir_pedido";
+        repetir.href = "naoDesenvolvido.html";
         div2.appendChild(repetir);
 
         if (levantado) {
