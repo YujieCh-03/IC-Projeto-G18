@@ -26,3 +26,17 @@ for (const f of criados) {
     a.appendChild(btn);
     pag.appendChild(a);
 }
+
+function pesquisar_festivais() {
+    let input = document.getElementById('barra_pesquisa').value
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('bilhetes_festival');
+    for (i = 0; i < x.length; i++) {
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display = "none";
+        }
+        else {
+            x[i].style.display = "list-item";
+        }
+    }
+}

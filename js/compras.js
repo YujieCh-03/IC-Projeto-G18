@@ -113,3 +113,18 @@ function ligarAoPedido(idPedido) {
 function numeroBilhete(bilhete) {
     return '#' + bilhete.compra.slice(-8) + '-' + bilhete.numero;
 }
+
+
+function pesquisar_restaurantes() {
+    let input = document.getElementById('barra_pesquisa').value
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('rest');
+    for (i = 0; i < x.length; i++) {
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display = "none";
+        }
+        else {
+            x[i].style.display = "";
+        }
+    }
+}

@@ -17,8 +17,8 @@
                 <a href="main.html" class="voltar-btn">voltar</a>
                 <h1>BandyAPP</h1>
                 
-                <form method="GET">
-                    <input for="pesquisa" id="pesquisa" placeholder="Pesquisar">
+                <form method="GET" onsubmit="return false;">
+                    <input onkeyup="pesquisar_festivais()" id="barra_pesquisa" placeholder="Pesquisar">
                 </form>
 
                 <section class="bilhetesCompra">

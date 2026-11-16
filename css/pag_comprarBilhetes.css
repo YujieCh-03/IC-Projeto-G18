@@ -15,10 +15,12 @@ form {
     margin: 20px 0;
 }
 
-#pesquisa {
+#barra_pesquisa {
     flex: 1;
     min-width: 0;
     padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #222;
 }
 
 .bilhetesCompra {

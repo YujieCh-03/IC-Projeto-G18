@@ -6,10 +6,14 @@ form {
     display: flex;
 }
 
-#pesquisa_rest {
-    flex: 1;
-    min-width: 0;
+.barra{
+    justify-content: center;
+}
+#barra_pesquisa{
     padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #222;
 }
 
 /* intro */

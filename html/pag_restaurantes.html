@@ -15,8 +15,8 @@
             <a href="festivalhome.html" class="voltar-btn">voltar</a>
             <h1>BandyAPP</h1>
                 
-            <form method="GET">
-                <input id="pesquisa_rest" placeholder="Pesquisar">
+            <form method="GET" onsubmit="return false;" class="barra">
+                <input onkeyup="pesquisar_restaurantes()" id="barra_pesquisa" placeholder="Pesquisar">
             </form>
 
             <div class="intro_restaurantes">
