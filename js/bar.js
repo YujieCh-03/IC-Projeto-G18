@@ -77,11 +77,6 @@ function prepararPedidoBar(menu) {
 
         try {
             sessionStorage.setItem(chavePedidoBar, JSON.stringify(pedido));
-            const lista = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
-            const i = lista.findIndex(p => p.id === pedido.id);
-            if (i === -1) lista.push(pedido); else lista[i] = pedido;
-            sessionStorage.setItem("listaPedidos", JSON.stringify(lista));
-            sessionStorage.setItem("numPedidos", lista.length);
         } catch {
             alert('Não foi possível guardar o pedido. Tente novamente.');
             return;
@@ -155,3 +150,4 @@ document.addEventListener("click", (event) => {
     campo.value = qtd;
     campo.dispatchEvent(new Event("input", { bubbles: true }));
 });
+
