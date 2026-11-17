@@ -1,5 +1,5 @@
 const linkPedidos = document.getElementById("linkPedidos");
-const num = Number(sessionStorage.getItem("numPedidos")) || 0;
+const num = lerPedidosPagos().length;
 
 if(num > 0 && linkPedidos){
     const div = document.createElement("div");
