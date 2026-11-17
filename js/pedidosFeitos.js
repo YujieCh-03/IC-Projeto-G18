@@ -56,8 +56,40 @@ function atualizarLista() {
         const repetir = document.createElement("a");
         repetir.className = "btn-repetir_pedido";
         repetir.textContent = "Repetir";
-        repetir.href = "naoDesenvolvido.html";
-        div2.appendChild(repetir);
+        repetir.href = "pag_bar.html";
+
+repetir.addEventListener("click", function (event) {
+    event.preventDefault();
+
+
+    const novoPedido = {
+        id: crypto.randomUUID(),
+        festival: pedido.festival,
+        tipo: "Pedido do bar",
+        hora: "",
+        itens: pedido.itens.map(item => ({ ...item })),
+        total: pedido.total
+    };
+
+    try {
+        sessionStorage.setItem(
+            chavePedidoBar,
+            JSON.stringify(novoPedido)
+        );
+    } catch {
+        alert("Não foi possível repetir o pedido. Tente novamente.");
+        return;
+    }
+
+    const parametros = new URLSearchParams({
+        bar: novoPedido.festival,
+        pedido: novoPedido.id
+    });
+
+    location.href = "pag_bar.html?" + parametros.toString();
+});
+
+div2.appendChild(repetir);
 
         if (levantado) {
             const apagar = document.createElement("a");

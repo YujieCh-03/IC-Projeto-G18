@@ -155,3 +155,775 @@ a{
     cursor:pointer;
     font-weight: bold;
 }
+
+
+
+:root {
+    --cor-fundo: #eeedf4;
+    --cor-pagina: #f7f6fb;
+    --cor-cartao: #ffffff;
+    --cor-principal: #6d28d9;
+    --cor-principal-hover: #5820b2;
+    --cor-suave: #f0eafa;
+    --cor-texto: #252237;
+    --cor-secundaria: #625c70;
+    --cor-borda: #e2dcea;
+    --cor-perigo: #b42336;
+}
+
+
+html body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+}
+
+body .tlm {
+    background: var(--cor-pagina);
+    border-color: #d8d4e5;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(45, 30, 75, 0.12);
+    scrollbar-width: thin;
+    scrollbar-color: #c9bbdf transparent;
+}
+
+body .tlm h1 {
+    margin: 16px 0 24px;
+    color: var(--cor-texto);
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+body .tlm h2 {
+    color: var(--cor-texto);
+    font-size: 20px;
+}
+
+body .tlm h3 {
+    color: var(--cor-texto);
+    font-size: 17px;
+}
+
+body .tlm a {
+    text-decoration: none;
+}
+
+
+body .tlm :is(
+    .voltar-btn,
+    .saude-voltar,
+    .horario-voltar
+) {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    flex-shrink: 0;
+
+    width: fit-content;
+    height: auto;
+    min-height: 40px;
+    padding: 8px 14px;
+    margin-bottom: 10px;
+
+    background: white;
+    color: #6536bd;
+    border: 1px solid #e5def2;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+body .tlm :is(
+    .voltar-btn,
+    .saude-voltar,
+    .horario-voltar
+):hover {
+    background: #eee7fa;
+}
+
+
+body .tlm .option {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 82px;
+    gap: 14px;
+    padding: 18px;
+    background: white;
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(45, 30, 75, 0.04);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+body .tlm .option:hover {
+    background: var(--cor-suave);
+    border-color: #cbb7ee;
+}
+
+body .tlm .option .icon {
+    color: var(--cor-principal);
+    font-size: 20px;
+}
+
+body .tlm > .titulo {
+    margin: 26px 0 12px;
+    color: var(--cor-principal);
+    font-size: 30px;
+}
+
+body .tlm > nav:not(.botoes) {
+    gap: 14px;
+    margin: 24px 0;
+}
+
+body .tlm .img-main {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+body .tlm .ajuda {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+
+body .tlm input,
+body .tlm select,
+body .tlm textarea,
+body .popup-caixa input,
+body .popup-box input,
+body .popup-box-pdf input,
+body #form_bilhete input,
+body #form_festival input,
+body #barra_pesquisa,
+body #input_nome {
+    box-sizing: border-box;
+    max-width: 100%;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--cor-texto);
+    background: white;
+    border: 1px solid #d8d0e4;
+    border-radius: 10px;
+    accent-color: var(--cor-principal);
+}
+
+body .tlm input:not([type]),
+body .tlm input:is(
+    [type="text"],
+    [type="email"],
+    [type="password"],
+    [type="tel"],
+    [type="search"],
+    [type="date"],
+    [type="time"]
+),
+body .tlm select {
+    min-height: 44px;
+    padding: 10px 12px;
+}
+
+body .tlm input::placeholder {
+    color: #797285;
+}
+
+body .tlm :is(input, select, textarea):focus-visible {
+    outline: 2px solid var(--cor-principal);
+    outline-offset: 2px;
+}
+
+body #barra_pesquisa,
+body #pesquisa {
+    width: 100%;
+}
+
+body #form_bilhete {
+    display: block;
+    margin: 16px 6px;
+    text-align: left;
+}
+
+body #form_festival {
+    gap: 8px;
+}
+
+body .tlm .all {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+body .tlm .form label {
+    text-align: left;
+    color: var(--cor-secundaria);
+    font-weight: 600;
+}
+
+
+body .primario,
+body .tlm button,
+body .tlm input[type="submit"],
+body .tlm .confirm,
+body .tlm .save,
+body .tlm .pagar-btn,
+body .tlm .guardar-btn,
+body .tlm .btn-pagamento,
+body .tlm .btn-mbway,
+body .tlm .confirm-mbway,
+body .tlm .fazer_pedido,
+body .tlm .ped2,
+body .tlm .p2 {
+    box-sizing: border-box;
+    min-height: 44px;
+    padding: 12px 16px;
+    background: var(--cor-principal);
+    color: white;
+    border: 1px solid var(--cor-principal);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    cursor: pointer;
+}
+
+body .primario {
+    display: inline-block;
+    margin: 5px;
+}
+
+body .primario:hover,
+body .tlm :is(
+    .confirm,
+    .save,
+    .pagar-btn,
+    .guardar-btn,
+    .btn-pagamento,
+    .btn-mbway,
+    .confirm-mbway,
+    .fazer_pedido,
+    .ped2
+):hover {
+    background: var(--cor-principal-hover);
+    border-color: var(--cor-principal-hover);
+}
+
+body .tlm :is(.confirm, .save, .fazer_pedido) {
+    height: auto;
+}
+
+body .tlm .btn-mbway {
+    width: fit-content;
+    min-width: 140px;
+}
+
+
+body .secundario,
+body .tlm .pdf-btn,
+body .tlm .ajuda-btn,
+body .tlm .ajuda_hora,
+body .tlm .btn-qrcode_pedido,
+body .tlm .btn-recibo_pedido,
+body .tlm .btn-repetir_pedido,
+body .tlm .btn-apagar_pedido,
+body .tlm .ped1 {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    height: auto;
+    padding: 10px 12px;
+    background: white;
+    color: #60349c;
+    border: 1px solid #dcd6e6;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+}
+
+body .secundario {
+    margin: 5px;
+}
+
+body .secundario:hover,
+body .tlm .pdf-btn:hover,
+body .tlm .ajuda-btn:hover {
+    background: var(--cor-suave);
+}
+
+
+body .tlm .ticket-card,
+body .tlm .ticket-detail-card,
+body .tlm .festivais,
+body .tlm .bilheteCPreço,
+body .tlm .bill {
+    box-sizing: border-box;
+    background: white;
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(45, 30, 75, 0.04);
+}
+
+body .tlm .ticket-card {
+    max-width: 100%;
+    padding: 18px;
+}
+
+body .tlm .festivais {
+    padding: 12px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+body .tlm .festivais:hover,
+body .tlm .ticket-card:hover,
+body .tlm .bilheteCPreço:hover {
+    background: var(--cor-suave);
+    border-color: #cbb7ee;
+}
+
+body .tlm .imgFestival {
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+body .tlm .imgCartaz {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+body .tlm .ticket-detail-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+}
+
+body .tlm .ticket-info {
+    border-top-color: var(--cor-borda);
+}
+
+body .tlm .info-row {
+    gap: 12px;
+}
+
+body .tlm .info-row .value {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+body .tlm .qr-container {
+    background: white;
+    border-color: #d8d0e4;
+}
+
+body .tlm .gosto-btn button {
+    background: var(--cor-suave);
+    color: #60349c;
+    border-color: #d9c8f0;
+}
+
+body .tlm .rest {
+    gap: 12px;
+    align-items: center;
+    margin: 10px 0;
+    padding: 12px;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(45, 30, 75, 0.04);
+}
+
+body .tlm .rest:hover {
+    border-color: #bda2e6;
+}
+
+body .tlm .img_rest {
+    flex-shrink: 0;
+    width: 80px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+body .tlm .txt_rest {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+}
+
+body .tlm .nome_rest {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+body .tlm .dist_rest {
+    display: inline-block;
+    margin: 0;
+    padding: 4px 8px;
+    background: var(--cor-suave);
+    color: #60349c;
+    border-radius: 6px;
+    font-size: 12px;
+    font-style: normal;
+}
+
+
+body .tlm .item {
+    gap: 8px;
+    margin: 8px 0;
+    padding: 12px;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+}
+
+body .tlm .txt_item {
+    flex: 1;
+    min-width: 0;
+}
+
+body .tlm .nome_item {
+    margin: 0 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+body .tlm .preco_item {
+    margin: 0;
+    color: var(--cor-principal);
+    font-weight: 600;
+}
+
+body .tlm .quantidade-btns {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 4px;
+}
+
+body .tlm .btn-menos,
+body .tlm .btn-mais {
+    width: 32px;
+    min-height: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    background: var(--cor-suave);
+    color: var(--cor-principal);
+    border-color: #d9c8f0;
+    font-size: 20px;
+}
+
+body .tlm .quant_item {
+    width: 44px;
+    height: 40px;
+    padding: 2px;
+    font-size: 15px;
+}
+
+body .tlm .total {
+    padding: 0 12px;
+    background: var(--cor-suave);
+    border-radius: 10px;
+}
+
+body .tlm .caixa_horas {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+
+body .tlm .pedido_porLevantar,
+body .tlm .pedido_levantado {
+    box-sizing: border-box;
+    width: 100%;
+    gap: 12px;
+    padding: 14px;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+}
+
+body .tlm .pedido_porLevantar {
+    border-left: 4px solid var(--cor-principal);
+}
+
+body .tlm .pedido_levantado {
+    border-left: 4px solid #26805b;
+}
+
+body .tlm .tempo_espera {
+    color: var(--cor-secundaria);
+    font-size: 13px;
+}
+
+body .tlm .btn-qrcode_pedido,
+body .tlm .btn-recibo_pedido,
+body .tlm .btn-repetir_pedido,
+body .tlm .btn-apagar_pedido {
+    width: auto;
+    min-width: 76px;
+    font-size: 12px;
+}
+
+body .tlm .horario-tabela,
+body .tlm .tabela_pedido {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 14px;
+}
+
+body .tlm .horario-tabela th,
+body .tlm .tabela_pedido th {
+    padding: 12px 6px;
+    background: var(--cor-suave);
+    color: #563195;
+    border: 1px solid var(--cor-borda);
+}
+
+body .tlm .horario-tabela td,
+body .tlm .tabela_pedido td {
+    padding: 12px 6px;
+    border: 1px solid var(--cor-borda);
+}
+
+body .tlm .horario-tabela tbody tr:nth-child(even) {
+    background: #faf8fd;
+}
+
+body .tlm .horario-tabela td:nth-child(2) {
+    font-weight: 600;
+}
+
+body .tlm .tabela_pedido {
+    margin-bottom: 24px;
+}
+
+/* 健康页 */
+
+body .saude .saude-dados {
+    padding: 0;
+}
+
+body .saude .saude-dados p {
+    margin: 0 0 12px;
+    padding: 18px 14px;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+body .tlm .amigo,
+body .tlm .utilizador {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0;
+    padding: 12px;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    text-align: left;
+}
+
+body .tlm .amigo span,
+body .tlm .utilizador span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-weight: 600;
+}
+
+body .tlm .amigo button,
+body .tlm .utilizador button {
+    flex-shrink: 0;
+}
+
+body .tlm .adicionar {
+    position: static;
+    transform: none;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: auto 0 0;
+    border: 0;
+}
+
+body .tlm .adicionaramigos {
+    display: block;
+    margin-top: 16px;
+    padding: 14px;
+    background: var(--cor-principal);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+body .tlm button:disabled {
+    background: #edeaf2;
+    color: #6c6579;
+    border-color: #ded8e7;
+    cursor: default;
+}
+
+
+body .saude .saude-socorro,
+body #pedir-socorro .primario {
+    background: var(--cor-perigo);
+    color: white;
+    border-color: var(--cor-perigo);
+}
+
+body .saude .saude-socorro:hover,
+body #pedir-socorro .primario:hover {
+    background: #921c2c;
+    border-color: #921c2c;
+}
+
+body .tlm .amigo button,
+body .tlm .btn-apagar_pedido {
+    background: #fff1f3;
+    color: var(--cor-perigo);
+    border-color: #efc9d0;
+}
+
+body .tlm .erro,
+body .tlm .obrigatorio {
+    color: var(--cor-perigo);
+}
+
+
+body .pop,
+body .popup,
+body .popup-pdf {
+    z-index: 100;
+    background: rgba(28, 20, 45, 0.42);
+}
+
+body .popup-caixa,
+body .popup-aviso,
+body .popup-box,
+body .popup-box-pdf {
+    box-sizing: border-box;
+    max-width: 340px;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    padding: 24px;
+    background: white;
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-borda);
+    border-radius: 18px;
+    box-shadow: 0 16px 45px rgba(25, 15, 45, 0.2);
+}
+
+body :is(
+    .popup-caixa,
+    .popup-aviso,
+    .popup-box,
+    .popup-box-pdf
+) h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+}
+
+body :is(
+    .popup-caixa,
+    .popup-aviso,
+    .popup-box,
+    .popup-box-pdf
+) p {
+    color: var(--cor-secundaria);
+    line-height: 1.5;
+}
+
+body .respostas,
+body .respostas_pagar,
+body .btn-fazer_pedido {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+body .compra {
+    accent-color: var(--cor-principal);
+}
+
+body .compra::-webkit-progress-bar {
+    background: #e7e0f0;
+    border-radius: 8px;
+}
+
+body .compra::-webkit-progress-value {
+    background: var(--cor-principal);
+    border-radius: 8px;
+}
+
+body .compra::-moz-progress-bar {
+    background: var(--cor-principal);
+    border-radius: 8px;
+}
+
+
+body a:focus-visible,
+body button:focus-visible {
+    outline: 3px solid var(--cor-principal);
+    outline-offset: 2px;
+}
+
+body .tlm .amigo button:not(.btn-remover) {
+    background: #f0eafa;
+    color: #ee5bfc;
+    border: 1px solid #d9c8f0;
+}
+
+body .tlm .amigo button:not(.btn-remover):hover {
+    background: #e9dff8;
+}
+
+body .tlm .amigo button.btn-remover {
+    background: #fff1f3;
+    color: #b42336;
+    border: 1px solid #efc9d0;
+}
+
+body .tlm .amigo button.btn-remover:hover {
+    background: #fce0e5;
+}
+
+body .tlm .voltar-btn {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+
+    width: fit-content;
+    height: auto;
+    min-height: 40px;
+
+    margin: 0 auto 12px 0;
+}
+
+body .tlm .all {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}

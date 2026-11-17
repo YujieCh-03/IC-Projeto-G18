@@ -8,4 +8,11 @@ else{
     recibo.href = 'bilhetes.html';
 }
 
-document.querySelector('#save .primario') .href='festivalhome.html';
+document.querySelector('#save .primario') .href='main.html';
+const botaoOK = document.querySelector("#save .primario");
+
+if (origem === "bar") {
+    botaoOK.href = "festivalhome.html";
+} else {
+    botaoOK.href = "main.html";
+}

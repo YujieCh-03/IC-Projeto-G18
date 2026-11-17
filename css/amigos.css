@@ -65,3 +65,22 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+
+
+body .tlm .amigo button {
+    background: var(--cor-suave);
+    color: var(--cor-principal);
+    border-color: #d9c8f0;
+}
+
+body .tlm .amigo button:hover {
+    background: #e9dff8;
+}
+
+
+body .tlm .amigo button.btn-remover {
+    background: #fff1f3;
+    color: var(--cor-perigo);
+    border-color: #efc9d0;
+}

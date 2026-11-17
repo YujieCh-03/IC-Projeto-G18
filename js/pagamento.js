@@ -106,9 +106,12 @@ function mostrarRecibo() {
     document.getElementById("metodo-recibo").textContent = recibo.metodo;
     document.getElementById("data-recibo").textContent = new Date(recibo.data).toLocaleDateString("pt-PT");
     mostrarResumo(recibo);
-    const texto = document.getElementById('bill').innerText;
-    document.getElementById('guardar-recibo').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(texto);
-    if (origemBar) ligarAoPedido(idPedido);
+
+const texto = document.getElementById('bill').innerText;
+document.getElementById('guardar-recibo').href =
+    'data:text/plain;charset=utf-8,' + encodeURIComponent(texto);
+
+if (origemBar) ligarAoPedido(idPedido);
 }
 
 const formPagamento = document.getElementById('form-pagamento');

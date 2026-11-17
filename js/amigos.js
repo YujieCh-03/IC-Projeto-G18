@@ -41,7 +41,8 @@ function mostrarAmigos() {
 
 
         const botao = document.createElement("button");
-        botao.textContent = "Remover";
+botao.textContent = "Remover";
+botao.classList.add("btn-remover");
 
         botao.onclick = function() {
             removerAmigo(nome);
@@ -76,6 +77,7 @@ function removerAmigo(nome) {
     );
 
     mostrarAmigos();
+    botao.classList.add("btn-remover");
 }
 
 document.addEventListener("DOMContentLoaded", function() {

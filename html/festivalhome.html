@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/mapa.css">
     <script src="../js/escolherFestival.js" defer></script>
+    <script src="../js/localizarAmigo.js" defer></script>
 </head>
 <body>
     <main class="tlm festival">
@@ -99,6 +100,28 @@
         <p>A equipa de socorro está a caminho do seu local.</p>
         <p><small>Simulação do protótipo.</small></p>
         <a class="primario" href="#mapa">OK</a>
+    </div>
+</div>
+<div class="pop mapa-popup" id="cancelar-localizacao">
+    <div class="popup-caixa">
+        <h2>Cancelar localização</h2>
+
+        <p>
+            Deseja cancelar a localização de
+            <strong id="nome-amigo-localizado"></strong>?
+        </p>
+
+        <div class="respostas">
+            <a class="primario"
+               id="confirmar-cancelamento"
+               href="#mapa">
+                Sim
+            </a>
+
+            <a class="secundario" href="#mapa">
+                Não
+            </a>
+        </div>
     </div>
 </div>
 </body>
