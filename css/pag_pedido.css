@@ -45,4 +45,11 @@
     color: white;
     background-color: #222;
 }
+<<<<<<< HEAD
 
+=======
+body .tlm .tabela_pedido tr.linha-total > th,
+body .tlm .tabela_pedido tr.linha-total > td {
+    background-color: var(--cor-suave, #f0eafa);
+}
+>>>>>>> 3e27dc4133a6fc90e3443d431bba074fb4890e72
