@@ -66,6 +66,16 @@ function prepararPagamento(form) {
 
         try {
             if (lerCompra(pedido.id, prefixo) === null) {
+                if (origemBar) {
+                    const lista = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
+                    const existe = lista.some(function (anterior) {
+                        return anterior.id === pedido.id;
+                    });
+                    if (!existe) {
+                        lista.push({ id: pedido.id });
+                        sessionStorage.setItem("listaPedidos", JSON.stringify(lista));
+                    }
+                }
                 localStorage.setItem(prefixo + pedido.id, JSON.stringify(pedido));
             }
         } catch {
@@ -122,5 +132,6 @@ if (formPagamento !== null) {
 } else if (document.getElementById('metodo-recibo') !== null) {
     mostrarRecibo();
 }
+
 
 
