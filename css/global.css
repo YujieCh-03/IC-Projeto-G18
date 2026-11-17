@@ -136,7 +136,7 @@ a{
     display: inline-block;
     border: 1px solid white;
     color: white;
-    background-color: rgb(255, 80, 80);
+    background-color: rgb(253, 78, 78);
     border-radius: 50%;
     height: 15px;
     width: 15px;
@@ -228,7 +228,7 @@ body .tlm :is(
     margin-bottom: 10px;
 
     background: white;
-    color: #6536bd;
+    color: #6234b8;
     border: 1px solid #e5def2;
     border-radius: 12px;
 
