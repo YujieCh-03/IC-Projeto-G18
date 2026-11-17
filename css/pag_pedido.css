@@ -45,3 +45,8 @@
     color: white;
     background-color: #222;
 }
+
+body .tlm .tabela_pedido tr.linha-total > th,
+body .tlm .tabela_pedido tr.linha-total > td {
+    background-color: var(--cor-suave, #f0eafa);
+}

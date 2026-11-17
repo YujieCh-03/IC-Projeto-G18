@@ -2,11 +2,11 @@ const lista = document.getElementById("pag_pedidos");
 const vazio = document.getElementById("sem-pedidos");
 
 function atualizarLista() {
-    const pedidos = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
-    let numPedidos = 0;
+    const pedidos = lerPedidosPagos();
 
     lista.textContent = '';
     vazio.hidden = pedidos.length > 0;
+    lista.appendChild(vazio);
 
     for (const pedido of pedidos) {
         let tempo_espera = 0;
@@ -45,7 +45,6 @@ function atualizarLista() {
         qr_code.href = "#qrcode_pedido";
         qr_code.textContent = "QR Code";
         div2.appendChild(qr_code);
-        numPedidos++;
 
         const recibo = document.createElement("a");
         recibo.className = "btn-recibo_pedido";
@@ -141,8 +140,6 @@ div2.appendChild(repetir);
         lista.appendChild(novoPedido);
         lista.appendChild(reciboPedido);
     }
-    
-    sessionStorage.setItem("numPedidos", numPedidos);
 }
 
 atualizarLista();
