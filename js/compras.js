@@ -69,6 +69,18 @@ function lerCompra(idPedido, prefixo = prefixoCompra) {
     return null;
 }
 
+function lerPedidosPagos() {
+    const pedidos = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
+    const pagos = [];
+    for (const pedido of pedidos) {
+        const recibo = lerCompra(pedido.id, prefixoReciboBar);
+        if (recibo !== null) {
+            pagos.push(recibo);
+        }
+    }
+    return pagos;
+}
+
 function formatarEuros(valor) {
     return valor.toFixed(2).replace('.', ',') + ' €';
 }
