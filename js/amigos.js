@@ -26,6 +26,9 @@ function mostrarAmigos() {
         const div = document.createElement("div");
         div.className = "amigo";
 
+        const texto=document.createElement("span");
+        texto.textContent=nome;
+
         const detalhes = document.createElement("button");
         detalhes.textContent = "Ver detalhes";
 
@@ -34,28 +37,20 @@ function mostrarAmigos() {
                 "detalhe_amigo.html?nome=" +
                 encodeURIComponent(nome);
         };
+        const remover = document.createElement("button");
+        remover.textContent = "Remover";
 
-
-        const texto = document.createElement("span");
-        texto.textContent = nome;
-
-
-        const botao = document.createElement("button");
-botao.textContent = "Remover";
-botao.classList.add("btn-remover");
-
-        botao.onclick = function() {
+        remover.onclick = function() {
             removerAmigo(nome);
         };
 
-        
-        div.appendChild(detalhes);
         div.appendChild(texto);
-        div.appendChild(botao);
+        div.appendChild(detalhes);
+        div.appendChild(remover);
 
         lista.appendChild(div);
     });
-
+    
     if (resultados.length === 0) {
         const mensagem = document.createElement("p");
         mensagem.textContent = "Nenhum amigo encontrado.";

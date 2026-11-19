@@ -1,6 +1,6 @@
 .adicionar{
     display:block;
-    border:2px solid #222;
+    border:2px solid;
     max-width:220px;
     border-radius: 2px;
     width:100%;
@@ -24,12 +24,13 @@
 
 .amigo span {
     flex: 1;
-    text-align: center;
+    text-align: left;
+    min-width: 0;
+    overflow-wrap:anywhere;
 }
 
 .amigo button {
     background: white;
-    color: purple;
     border: 2px solid black;
     border-radius: 6px;
     padding: 8px;
@@ -49,8 +50,8 @@
 #localizar {
     width: 75%;
     height: 80px;
+    color:black;
     background: white;
-    color: purple;
     border: 3px solid black;
     border-radius: 10px;
     font-size: 24px;
@@ -69,8 +70,8 @@
 
 
 body .tlm .amigo button {
-    background: var(--cor-suave);
-    color: var(--cor-principal);
+    background: black;
+    color: black;
     border-color: #d9c8f0;
 }
 
@@ -81,6 +82,6 @@ body .tlm .amigo button:hover {
 
 body .tlm .amigo button.btn-remover {
     background: #fff1f3;
-    color: var(--cor-perigo);
+    color: black;
     border-color: #efc9d0;
 }
