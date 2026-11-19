@@ -85,3 +85,14 @@ body .tlm .amigo button.btn-remover {
     color: black;
     border-color: #efc9d0;
 }
+#meusAmigos .amigo button:first-of-type {
+    color: #6d28d9;
+    background-color: #f0eafa;
+    border: 1px solid #d9c8f0;
+}
+
+#meusAmigos .amigo button:nth-of-type(2) {
+    color: #b42336;
+    background-color: #fff1f3;
+    border: 1px solid #efc9d0;
+}
