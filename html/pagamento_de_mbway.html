@@ -33,7 +33,7 @@
             <br>
             <label class="numero_telemovel" for="telemovel">Número de telemóvel:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
             <br>
-            <input class="inputMBWay" id="telemovel" type="tel" inputmode="numeric" placeholder="912345678" maxlength="9" min="5" required>
+            <input class="inputMBWay" id="telemovel" type="tel" inputmode="numeric" placeholder="912345678" maxlength="9" min="5"  pattern="[0-9\s]{5,9}" required>
             <br>
             <button class="btn-mbway" type="submit">Continuar</button>
         </form>

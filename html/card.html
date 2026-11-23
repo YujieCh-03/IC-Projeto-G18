@@ -28,12 +28,12 @@
                 <input id="name" type="text" placeholder="Nome completo" maxlength="70" required>
 
                 <label for="number">Número do cartão:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
-                <input id="number" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                <input id="text" type="text" inputmode="numeric" pattern="[0-9\s]{15,23}" placeholder="0000 0000 0000 0000" maxlength="23" minlength="15" required>
 
                 <div class="row">
                     <div>
                         <label for="expiry">Validade:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
-                        <input id="expiry" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5"  required>
+                        <input id="expiry" type="numeric" inputmode="numeric" placeholder="MM/AA" maxlength="5"  required>
                     </div>
                     <div>
                         <label for="cvv">CVV:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
