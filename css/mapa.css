@@ -215,11 +215,6 @@ body {
     transition: background-color 0.15s;
 }
 
-.festival .sair::before {
-    content: "←";
-    font-size: 19px;
-}
-
 .festival .sair:hover {
     background: #eee7fa;
 }
