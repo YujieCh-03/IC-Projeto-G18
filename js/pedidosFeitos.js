@@ -62,7 +62,7 @@ repetir.addEventListener("click", function (event) {
 
 
     const novoPedido = {
-        id: id: String(Math.random()),
+        id: String(Math.random()),
         festival: pedido.festival,
         tipo: "Pedido do bar",
         hora: "",
