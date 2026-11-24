@@ -58,4 +58,19 @@ function mostrarFestival() {
         criarBilhete('Passe Geral', dataFestival, 120);
     }
 }
+
+const gostos = document.getElementById("gostos");
+const gostarBTN = document.getElementById("gosto-btn");
+let gostou = false;
+let contagemGostos = Number(gostos.textContent) || 2314;
+
+gostarBTN.addEventListener("click", () => {
+    gostou = !gostou;
+    contagemGostos += gostou ? 1 : -1;
+    gostarBTN.textContent = gostou ? "Desgostar" : "Gostar";
+    gostos.textContent = contagemGostos;
+});
+
+mostrarFestival();
+
 mostrarFestival();
