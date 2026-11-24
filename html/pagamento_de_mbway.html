@@ -23,7 +23,7 @@
 
         <div class="resumo"></div>
 
-        <form class="mbway" id="form-pagamento" data-metodo="MB WAY">
+        <form class="mbway" id="form-pagamento" data-metodo="MB WAY" novalidate>
             <label class="codigo_pais" for="codigo-pais">Código do país:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
             <br>
             <select class="selectMBWay" id="codigo-pais">
@@ -33,10 +33,18 @@
             <br>
             <label class="numero_telemovel" for="telemovel">Número de telemóvel:<span class="obrigatorio" title="Campo obrigatório">*</span></label>
             <br>
-            <input class="inputMBWay" id="telemovel" type="tel" inputmode="numeric" placeholder="912345678" maxlength="9" min="5"  pattern="[0-9\s]{5,9}" required>
+            <input class="inputMBWay" id="telemovel" type="tel" inputmode="numeric" placeholder="Apenas dígitos" maxlength="11" required>
             <br>
             <button class="btn-mbway" type="submit">Continuar</button>
         </form>
+
+        <dialog id="aviso-pagamento" class="popup-box" aria-labelledby="titulo-aviso-pagamento" aria-describedby="mensagem-aviso-pagamento">
+            <h2 id="titulo-aviso-pagamento">Verifique os dados</h2>
+            <p id="mensagem-aviso-pagamento"></p>
+            <form method="dialog">
+                <button class="primario" type="submit">OK</button>
+            </form>
+        </dialog>
 
         <div id="confirmacao" class="pop" style="display: none">
             <div class="popup-caixa">
@@ -58,3 +66,4 @@
     </div>
 </body>
 </html>
+
