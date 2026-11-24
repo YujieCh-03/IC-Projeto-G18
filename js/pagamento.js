@@ -23,6 +23,83 @@ function escolherPagamento() {
 }
 
 
+function temDigitos(valor, tamanho) {
+    if (valor.length !== tamanho) {
+        return false;
+    }
+    for (const caractere of valor) {
+        if (caractere < '0' || caractere > '9') {
+            return false;
+        }
+    }
+    return true;
+}
+
+function mostrarAvisoPagamento(campo, mensagem) {
+    const aviso = document.getElementById('aviso-pagamento');
+    document.getElementById('mensagem-aviso-pagamento').textContent = mensagem;
+    aviso.addEventListener('close', function () {
+        campo.focus();
+    }, { once: true });
+    aviso.showModal();
+}
+
+function validarDadosPagamento(form) {
+    if (form.dataset.metodo === 'MB WAY') {
+        const telemovel = document.getElementById('telemovel');
+        const codigoPais = document.getElementById('codigo-pais');
+
+        let tamanho = 9;
+        if (codigoPais.value === '+86') {
+            tamanho = 11;
+        }
+                if (!temDigitos(telemovel.value, tamanho)) {
+            mostrarAvisoPagamento(telemovel, 'Introduza um número de telemóvel com ' + tamanho + ' dígitos.');
+            return false;
+        }
+
+        if (codigoPais.value === '+351' && telemovel.value[0] !== '9') {
+            mostrarAvisoPagamento(telemovel, 'O número de telemóvel deve começar por 9.');
+            return false;
+        }
+
+        return true;
+
+    const nome = document.getElementById('name');
+    const numero = document.getElementById('number');
+    const validade = document.getElementById('expiry');
+    const cvv = document.getElementById('cvv');
+
+    if (nome.value.trim() === '') {
+        mostrarAvisoPagamento(nome, 'Introduza o nome no cartão.');
+        return false;
+    }
+
+    if (!temDigitos(numero.value.split(' ').join(''), 16)) {
+        mostrarAvisoPagamento(numero, 'O número do cartão deve ter 16 dígitos.');
+        return false;
+    }
+
+    const mes = validade.value.slice(0, 2);
+    const ano = validade.value.slice(3);
+    if (validade.value[2] !== '/' || !temDigitos(mes, 2) || !temDigitos(ano, 2)
+        || Number(mes) < 1 || Number(mes) > 12) {
+        mostrarAvisoPagamento(validade, 'Introduza a validade no formato MM/AA e um mês entre 01 e 12.');
+        return false;
+    }
+
+    if (!temDigitos(cvv.value, 3)) {
+        mostrarAvisoPagamento(cvv, 'O CVV deve ter 3 dígitos.');
+        return false;
+    }
+
+}
+    return true;
+
+
+
+}
+
 function prepararPagamento(form) {
     const metodo = form.dataset.metodo;
     const parametros = new URLSearchParams(location.search);
@@ -54,12 +131,20 @@ function prepararPagamento(form) {
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+        if (!validarDadosPagamento(form)) {
+            return;
+        }
         erro.hidden = true;
         confirmacao.style.display = '';
         location.hash = "confirmacao";
     });
 
     confirmar.addEventListener('click', function () {
+        if (!validarDadosPagamento(form)) {
+            confirmacao.style.display = 'none';
+            location.hash = '';
+            return;
+        }
         confirmar.disabled = true;
         pedido.metodo = metodo;
         pedido.data = new Date().toISOString();
@@ -132,6 +217,8 @@ if (formPagamento !== null) {
 } else if (document.getElementById('metodo-recibo') !== null) {
     mostrarRecibo();
 }
+
+
 
 
 
