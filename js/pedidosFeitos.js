@@ -1,6 +1,15 @@
 const lista = document.getElementById("pag_pedidos");
 const vazio = document.getElementById("sem-pedidos");
 
+let pedidoAApagar = null;
+
+document.getElementById("apagar_conf").addEventListener("click", () => {
+    let pedidos = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
+    pedidos = pedidos.filter(p => p.id !== pedidoAApagar);
+    sessionStorage.setItem("listaPedidos", JSON.stringify(pedidos));
+    atualizarLista();
+});
+
 function atualizarLista() {
     const pedidos = lerPedidosPagos();
 
@@ -95,13 +104,7 @@ div2.appendChild(repetir);
             apagar.className = "btn-apagar_pedido";
             apagar.href = "#apagar_pedido";
             apagar.textContent = "Apagar";
-            apagar.addEventListener("click", (e) => {
-                e.preventDefault();
-                let pedidos = JSON.parse(sessionStorage.getItem("listaPedidos") || "[]");
-                pedidos = pedidos.filter(p => p.id !== pedido.id);
-                sessionStorage.setItem("listaPedidos", JSON.stringify(pedidos));
-                atualizarLista();
-            });
+            apagar.addEventListener("click", () => { pedidoAApagar = pedido.id; });
             div2.appendChild(apagar);
         }
 
