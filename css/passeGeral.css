@@ -68,3 +68,8 @@
     color: #222;
     border: 1px solid #222;
 }
+#quantidade-bilhetes {
+    flex: 0 0 3ch;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}

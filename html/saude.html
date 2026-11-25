@@ -6,12 +6,15 @@
     <title>Saúde</title>
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/saude.css">
+    <link rel="stylesheet" href="../css/socorro.css">
     <script src="../js/saude.js" defer></script>
+    <script src="../js/socorro.js" defer></script>
 </head>
 <body>
     <main class="tlm saude">
         <a class="saude-voltar" href="festivalhome.html"
            aria-label="Voltar ao mapa">voltar</a>
+           <a id="estado-socorro" href="#socorro-enviado" hidden>Socorro</a>
 
         <h1>Corpo</h1>
 
@@ -41,12 +44,17 @@
     </div>
 </div>
 
-<div class="pop" id="socorro-enviado">
-    <div class="popup-caixa">
-        <h2>Pedido enviado</h2>
-        <p>A equipa de socorro está a caminho do seu local.</p>
-        <p><small>Simulação do protótipo.</small></p>
-        <a class="primario" href="#">OK</a>
+<div id="socorro-enviado" class="pop" hidden>
+    <div class="popup-caixa" role="dialog" aria-labelledby="titulo-socorro">
+        <h2 id="titulo-socorro">Pedido de socorro</h2>
+        <p>A equipa de primeiros socorros está a caminho.</p>
+
+        <div class="respostas">
+            <button type="button" id="fechar-socorro" class="secundario">
+                Fechar
+            </button>
+            <button type="button" id="cancelar-socorro">Cancelar pedido</button>
+        </div>
     </div>
 </div>
 </body>
