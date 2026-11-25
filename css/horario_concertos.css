@@ -35,3 +35,20 @@
 .horario-tabela td:first-child {
     text-align: left;
 }
+
+.listaArtistas{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.div_artista{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+.artistaSpan{
+    font-weight: bold;
+}

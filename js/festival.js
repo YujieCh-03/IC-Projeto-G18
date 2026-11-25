@@ -49,6 +49,9 @@ function mostrarFestival() {
     cartazSpan.src = criado ? criado.cartaz : "../files/festivais/cartaz" + idFestival + ".png";
     cartazSpan.alt = "Cartaz do Festival";
 
+    const descricaoSpan = document.getElementById("descricao");
+    descricaoSpan.textContent = "Os teus concertos favoritos têm " + nomeFestival + " por trás. Bilhetes, pré-vendas e a agenda completa - tudo aqui.";
+
     const [dias, resto] = dataFestival.trim().split(' de ');
     if (resto) {
         const lista = dias.replace(' e ', ', ').split(', ');
@@ -67,7 +70,7 @@ let contagemGostos = Number(gostos.textContent) || 2314;
 gostarBTN.addEventListener("click", () => {
     gostou = !gostou;
     contagemGostos += gostou ? 1 : -1;
-    gostarBTN.textContent = gostou ? "Desgostar" : "Gostar";
+    gostarBTN.textContent = gostou ? "Retirar Gosto" : "Gostar";
     gostos.textContent = contagemGostos;
 });
 

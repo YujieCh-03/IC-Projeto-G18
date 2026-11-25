@@ -62,10 +62,27 @@
     padding: 10px;
 }
 
-.gosto button {
+#gosto-btn{
     border: 1px solid #e72eff;
-    background-color: #ff5cce60;
+    background-color: #ff5cce3f;
+    color: #5e1e9b;
     border-radius: 10px;
     padding: 10px;
     width: 40%;
+}
+
+#descricao{
+    padding: 10px;
+    width: 80%;
+}
+
+#horarios{
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #5e1e9b;
+    border-radius: 12px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 80%;
+    font-weight: bold;
 }
