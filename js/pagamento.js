@@ -64,6 +64,7 @@ function validarDadosPagamento(form) {
         }
 
         return true;
+    }
 
     const nome = document.getElementById('name');
     const numero = document.getElementById('number');
@@ -92,12 +93,7 @@ function validarDadosPagamento(form) {
         mostrarAvisoPagamento(cvv, 'O CVV deve ter 3 dígitos.');
         return false;
     }
-
-}
     return true;
-
-
-
 }
 
 function prepararPagamento(form) {
@@ -176,6 +172,7 @@ function prepararPagamento(form) {
         document.getElementById("sucesso").style.display = '';
         location.replace("#sucesso");
     });
+    form.noValidate = true;
 }
 
 function mostrarRecibo() {
@@ -217,6 +214,8 @@ if (formPagamento !== null) {
 } else if (document.getElementById('metodo-recibo') !== null) {
     mostrarRecibo();
 }
+
+
 
 
 
