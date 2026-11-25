@@ -22,6 +22,7 @@
 .horario-tabela {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
 }
 
 .horario-tabela th,
